@@ -1,0 +1,501 @@
+Number,Year,Album,Artist,Genre
+1,1967,Sgt. Pepper's Lonely Hearts Club Band,The Beatles,Rock
+2,1966,Pet Sounds,The Beach Boys,Rock
+3,1966,Revolver,The Beatles,Rock
+4,1965,Highway 61 Revisited,Bob Dylan,Rock
+5,1965,Rubber Soul,The Beatles,Rock
+6,1971,What's Going On,Marvin Gaye,Funk
+7,1972,Exile on Main St.,The Rolling Stones,Rock
+8,1979,London Calling,The Clash,Rock
+9,1966,Blonde on Blonde,Bob Dylan,Rock
+10,1968,The Beatles (The White Album),The Beatles,Rock
+11,1976,The Sun Sessions,Elvis Presley,Rock
+12,1959,Kind of Blue,Miles Davis,Jazz
+13,1967,The Velvet Underground & Nico,The Velvet Underground,Rock
+14,1969,Abbey Road,The Beatles,Rock
+15,1967,Are You Experienced,The Jimi Hendrix Experience,Rock
+16,1975,Blood on the Tracks,Bob Dylan,Rock
+17,1991,Nevermind,Nirvana,Rock
+18,1975,Born to Run,Bruce Springsteen,Rock
+19,1968,Astral Weeks,Van Morrison,Jazz
+20,1982,Thriller,Michael Jackson,Funk
+21,1982,The Great Twenty_Eight,Chuck Berry,Rock
+22,1990,The Complete Recordings,Robert Johnson,Blues
+23,1970,John Lennon/Plastic Ono Band,John Lennon / Plastic Ono Band,Rock
+24,1973,Innervisions,Stevie Wonder,Funk
+25,1963,Live at the Apollo 1962,James Brown,Funk
+26,1977,Rumours,Fleetwood Mac,Rock
+27,1987,The Joshua Tree,U2,Rock
+28,1971,Who's Next,The Who,Rock
+29,1969,Led Zeppelin,Led Zeppelin,Rock
+30,1971,Blue,Joni Mitchell,Pop
+31,1965,Bringing It All Back Home,Bob Dylan,Rock
+32,1969,Let It Bleed,The Rolling Stones,Rock
+33,1976,Ramones,Ramones,Rock
+34,1968,Music From Big Pink,The Band,Rock
+35,1972,The Rise and Fall of Ziggy Stardust and the Spiders From Mars,David Bowie,Rock
+36,1971,Tapestry,Carole King,Rock
+37,1976,Hotel California,Eagles,Rock
+38,2001,The Anthology,Muddy Waters,Folk
+39,1963,Please Please Me,The Beatles,Rock
+40,1967,Forever Changes,Love,Rock
+41,1977,Never Mind the Bollocks Here's the Sex Pistols,Sex Pistols,Rock
+42,1967,The Doors,The Doors,Rock
+43,1973,The Dark Side of the Moon,Pink Floyd,Rock
+44,1975,Horses,Patti Smith,Rock
+45,1969,The Band (The Brown Album),The Band,Classical
+46,1984,Legend: The Best of Bob Marley and The Wailers,Bob Marley & The Wailers,Reggae
+47,1965,A Love Supreme,John Coltrane,Jazz
+48,1988,It Takes a Nation of Millions to Hold Us Back,Public Enemy,HipHop
+49,1971,At Fillmore East,The Allman Brothers Band,Rock
+50,1957,Here's Little Richard,Little Richard,Rock
+51,1970,Bridge Over Troubled Water,Simon & Garfunkel,Rock
+52,1975,Greatest Hits,Al Green,Funk
+53,1964,Meet The Beatles!,The Beatles,Rock
+54,1991,The Birth of Soul,Ray Charles,Jazz
+55,1968,Electric Ladyland,The Jimi Hendrix Experience,Rock
+56,1956,Elvis Presley,Elvis Presley,Rock
+57,1976,Songs in the Key of Life,Stevie Wonder,Funk
+58,1968,Beggars Banquet,The Rolling Stones,Rock
+59,1976,Chronicle: The 20 Greatest Hits,Creedence Clearwater Revival,Rock
+60,1969,Trout Mask Replica,Captain Beefheart & His Magic Band,Rock
+61,1970,Greatest Hits,Sly & The Family Stone,Funk
+62,1987,Appetite for Destruction,Guns N' Roses,Rock
+63,1991,Achtung Baby,U2,Electronic
+64,1971,Sticky Fingers,The Rolling Stones,Rock
+65,1991,Back to Mono (1958-1969),Phil Spector,Rock
+66,1970,Moondance,Van Morrison,Jazz
+67,2000,Kid A,Radiohead,Electronic
+68,1979,Off the Wall,Michael Jackson,Funk
+69,1971,[Led Zeppelin IV],Led Zeppelin,Rock
+70,1977,The Stranger,Billy Joel,Rock
+71,1986,Graceland,Paul Simon,Jazz
+72,1972,Superfly,Curtis Mayfield,Funk
+73,1975,Physical Graffiti,Led Zeppelin,Rock
+74,1970,After the Gold Rush,Neil Young,Rock
+75,1991,Star Time,James Brown,Funk
+76,1984,Purple Rain,Prince and the Revolution,Electronic
+77,1980,Back in Black,AC/DC,Rock
+78,1965,Otis Blue: Otis Redding Sings Soul,Otis Redding,Funk
+79,1969,Led Zeppelin II,Led Zeppelin,Rock
+80,1971,Imagine,John Lennon,Rock
+81,1977,The Clash,The Clash,Rock
+82,1972,Harvest,Neil Young,Rock
+83,1967,Axis: Bold as Love,The Jimi Hendrix Experience,Rock
+84,1967,I Never Loved a Man the Way I Love You,Aretha Franklin,Funk
+85,1968,Lady Soul,Aretha Franklin,Funk
+86,1984,Born in the U.S.A.,Bruce Springsteen,Rock
+87,1979,The Wall,Pink Floyd,Rock
+88,1968,At Folsom Prison,Johnny Cash,Folk
+89,1969,Dusty in Memphis,Dusty Springfield,Rock
+90,1972,Talking Book,Stevie Wonder,Funk
+91,1973,Goodbye Yellow Brick Road,Elton John,Rock
+92,1978,20 Golden Greats,Buddy Holly,Rock
+93,1987,Sign Peace the Times,Prince,Rock
+94,1984,40 Greatest Hits,Hank Williams,Folk
+95,1970,Bitches Brew,Miles Davis,Jazz
+96,1969,Tommy,The Who,Rock
+97,1963,The Freewheelin' Bob Dylan,Bob Dylan,Folk
+98,1978,This Year's Model,Elvis Costello,Rock
+99,1971,There's a Riot Goin' On,Sly & The Family Stone,Funk
+100,1968,Odessey and Oracle,The Zombies,Rock
+101,1955,In the Wee Small Hours,Frank Sinatra,Jazz
+102,1966,Fresh Cream,Cream,Rock
+103,1959,Giant Steps,John Coltrane,Jazz
+104,1970,Sweet Baby James,James Taylor,Rock
+105,1962,Modern Sounds in Country and Western Music,Ray Charles,Funk
+106,1977,Rocket to Russia,Ramones,Rock
+107,2003,Portrait of a Legend 1951-1964,Sam Cooke,Latin
+108,1971,Hunky Dory,David Bowie,Rock
+109,1966,Aftermath,The Rolling Stones,Rock
+110,1970,Loaded,The Velvet Underground,Rock
+111,1995,The Bends,Radiohead,Rock
+112,1966,If You Can Believe Your Eyes and Ears,The Mamas and the Papas,Rock
+113,1974,Court and Spark,Joni Mitchell,Rock
+114,1967,Disraeli Gears,Cream,Rock
+115,1967,The Who Sell Out,The Who,Rock
+116,1965,Out of Our Heads,The Rolling Stones,Rock
+117,1970,Layla and Other Assorted Love Songs,Derek and the Dominos,Rock
+118,2005,Late Registration,Kanye West,HipHop
+119,1960,At Last!,Etta James,Funk
+120,1968,Sweetheart of the Rodeo,The Byrds,Rock
+121,1969,Stand!,Sly & The Family Stone,Funk
+122,1972,The Harder They Come,Various Artists,Reggae
+123,1986,Raising Hell,Run D.M.C.,HipHop
+124,1967,Moby Grape,Moby Grape,Rock
+125,1971,Pearl,Janis Joplin,Rock
+126,1973,Catch a Fire,The Wailers,Reggae
+127,1967,Younger Than Yesterday,The Byrds,Rock
+128,1973,Raw Power,Iggy and The Stooges,Rock
+129,1980,Remain in Light,Talking Heads,Electronic
+130,1977,Marquee Moon,Television,Rock
+131,1970,Paranoid,Black Sabbath,Rock
+132,1977,Saturday Night Fever: The Original Movie Sound Track,Various Artists,Electronic
+133,1973,The Wild the Innocent & the E Street Shuffle,Bruce Springsteen,Rock
+134,1994,Ready to Die,The Notorious B.I.G.,HipHop
+135,1992,Slanted and Enchanted,Pavement,Rock
+136,1974,Greatest Hits,Elton John,Rock
+137,1985,Tim,The Replacements,Rock
+138,1992,The Chronic,Dr. Dre,HipHop
+139,1974,Rejuvenation,The Meters,Funk
+140,1978,Parallel Lines,Blondie,Electronic
+141,1965,Live at the Regal,B.B. King,Blues
+142,1963,A Christmas Gift for You From Phil Spector,Phil Spector,Rock
+143,1968,Gris-Gris,Dr. John the Night Tripper,Jazz
+144,1988,Straight Outta Compton,N.W.A,HipHop
+145,1977,Aja,Steely Dan,Jazz
+146,1967,Surrealistic Pillow,Jefferson Airplane,Rock
+147,1970,Deja vu,Crosby Stills Nash & Young,Rock
+148,1973,Houses of the Holy,Led Zeppelin,Rock
+149,1969,Santana,Santana,Rock
+150,1978,Darkness on the Edge of Town,Bruce Springsteen,Rock
+151,2004,Funeral,Arcade Fire,Rock
+152,1979,The B 52's / Play Loud,The B 52's,Electronic
+153,1991,The Low End Theory,A Tribe Called Quest,HipHop
+154,1958,Moanin' in the Moonlight,Howlin' Wolf,Blues
+155,1980,Pretenders,Pretenders,Rock
+156,1989,Paul's Boutique,Beastie Boys,HipHop
+157,1980,Closer,Joy Division,Rock
+158,1975,Captain Fantastic and the Brown Dirt Cowboy,Elton John,Rock
+159,1975,Alive!,KISS,Rock
+160,1971,Electric Warrior,T. Rex,Rock
+161,1968,The Dock of the Bay,Otis Redding,Funk
+162,1997,OK Computer,Radiohead,Electronic
+163,1982,1999,Prince,Funk
+164,2002,The Very Best of Linda Ronstadt,Linda Ronstadt,Rock
+165,1973,Let's Get It On,Marvin Gaye,Funk
+166,1982,Imperial Bedroom,Elvis Costello & The Attractions,Rock
+167,1986,Master of Puppets,Metallica,Rock
+168,1977,My Aim Is True,Elvis Costello,Rock
+169,1977,Exodus,Bob Marley & The Wailers,Reggae
+170,1970,Live at Leeds,The Who,Rock
+171,1968,The Notorious Byrd Brothers,The Byrds,Rock
+172,1971,Every Picture Tells a Story,Rod Stewart,Rock
+173,1972,Something/Anything?,Todd Rundgren,Rock
+174,1976,Desire,Bob Dylan,Rock
+175,1970,Close to You,Carpenters,Rock
+176,1976,Rocks,Aerosmith,Rock
+177,1978,One Nation Under a Groove,Funkadelic,Funk
+178,1992,The Anthology: 1961-1977,Curtis Mayfield and The Impressions,Funk
+179,2001,The Definitive Collection,ABBA,Electronic
+180,1965,The Rolling Stones Now!,The Rolling Stones,Rock
+181,1974,Natty Dread,Bob Marley & The Wailers,Reggae
+182,1975,Fleetwood Mac,Fleetwood Mac,Rock
+183,1975,Red Headed Stranger,Willie Nelson,Folk
+184,1990,The Immaculate Collection,Madonna,Electronic
+185,1969,The Stooges,The Stooges,Rock
+186,1973,Fresh,Sly & The Family Stone,Funk
+187,1986,So,Peter Gabriel,Electronic
+188,1967,Buffalo Springfield Again,Buffalo Springfield,Rock
+189,1969,Happy Trails,Quicksilver Messenger Service,Rock
+190,1969,From Elvis in Memphis,Elvis Presley,Rock
+191,1970,Fun House,The Stooges,Rock
+192,1969,The Gilded Palace of Sin,The Flying Burrito Brothers,Rock
+193,1994,Dookie,Green Day,Rock
+194,1972,Transformer,Lou Reed,Rock
+195,1966,Blues Breakers With Eric Clapton (The Beano Album),John Mayall & The Bluesbreakers,Rock
+196,1998,Nuggets: Original Artyfacts From the First Psychedelic Era 1965-1968,Various Artists,Rock
+197,1983,Murmur,R.E.M.,Rock
+198,1967,The Best of Little Walter,Little Walter,Blues
+199,2001,Is This It,The Strokes,Rock
+200,1979,Highway to Hell,AC/DC,Rock
+201,1994,The Downward Spiral,Nine Inch Nails,Electronic
+202,1966,Parsley Sage Rosemary and Thyme,Simon & Garfunkel,Rock
+203,1987,Bad,Michael Jackson,Funk
+204,2006,Modern Times,Bob Dylan,Rock
+205,1968,Wheels of Fire,Cream,Rock
+206,1980,Dirty Mind,Prince,Funk
+207,1970,Abraxas,Santana,Rock
+208,1970,Tea for the Tillerman,Cat Stevens,Rock
+209,1991,Ten,Pearl Jam,Rock
+210,1969,Everybody Knows This Is Nowhere,Neil Young & Crazy Horse,Rock
+211,1975,Wish You Were Here,Pink Floyd,Rock
+212,1994,Crooked Rain Crooked Rain,Pavement,Rock
+213,1981,Tattoo You,The Rolling Stones,Rock
+214,1991,Proud Mary: The Best of Ike and Tina Turner,Ike & Tina Turner,Funk
+215,1973,New York Dolls,New York Dolls,Rock
+216,1986,Bo Diddley / Go Bo Diddley,Bo Diddley,Rock
+217,1961,Two Steps From the Blues,Bobby Blue Bland,Funk
+218,1986,The Queen Is Dead,The Smiths,Rock
+219,1986,Licensed to Ill,Beastie Boys,HipHop
+220,1970,Look-Ka Py Py,The Meters,Funk
+221,1991,Loveless,My Bloody Valentine,Rock
+222,1972,New Orleans Piano,Professor Longhair,Funk
+223,1983,War,U2,Rock
+224,1999,The Neil Diamond Collection,Neil Diamond,Rock
+225,2004,American Idiot,Green Day,Rock
+226,1982,Nebraska,Bruce Springsteen,Rock
+227,1989,Doolittle,Pixies,Rock
+228,1987,Paid in Full,Eric B. & Rakim,HipHop
+229,1975,Toys in the Attic,Aerosmith,Rock
+230,1989,Nick of Time,Bonnie Raitt,Rock
+231,1975,A Night at the Opera,Queen,Rock
+232,1972,The Kink Kronikles,The Kinks,Rock
+233,1965,Mr. Tambourine Man,The Byrds,Rock
+234,1968,Bookends,Simon & Garfunkel,Rock
+235,2000,The Ultimate Collection,Patsy Cline,Folk
+236,1992,Mr. Excitement!,Jackie Wilson,Funk
+237,1965,My Generation,The Who,Rock
+238,1962,Howlin' Wolf,Howlin' Wolf,Blues
+239,1989,Like a Prayer,Madonna,Electronic
+240,1972,Can't Buy a Thrill,Steely Dan,Rock
+241,1984,Let It Be,The Replacements,Rock
+242,1984,Run D.M.C.,Run D.M.C.,HipHop
+243,1970,Black Sabbath,Black Sabbath,Rock
+244,2000,The Marshall Mathers LP,Eminem,HipHop
+245,1993,All Killer No Filler! The Jerry Lee Lewis Anthology,Jerry Lee Lewis,Rock
+246,1966,Freak Out!,The Mothers of Invention,Electronic
+247,1969,Live/Dead,The Grateful Dead,Rock
+248,1959,The Shape of Jazz to Come,Ornette Coleman,Jazz
+249,1992,Automatic for the People,R.E.M.,Rock
+250,1996,Reasonable Doubt,Jay Z,HipHop
+251,1977,Low,David Bowie,Electronic
+252,2001,The Blueprint,Jay Z,HipHop
+253,1980,The River,Bruce Springsteen,Rock
+254,1966,Complete & Unbelievable: The Otis Redding Dictionary of Soul,Otis Redding,Funk
+255,1991,Metallica (The Black Album),Metallica,Rock
+256,1977,Trans Europa Express,Kraftwerk,Electronic
+257,1985,Whitney Houston,Whitney Houston,Funk
+258,1968,The Kinks Are The Village Green Preservation Society,The Kinks,Rock
+259,1997,The Velvet Rope,Janet,Electronic
+260,1978,Stardust,Willie Nelson,Pop
+261,1970,American Beauty,Grateful Dead,Rock
+262,1969,Crosby Stills & Nash,Crosby Stills & Nash,Rock
+263,1988,Tracy Chapman,Tracy Chapman,Rock
+264,1970,Workingman's Dead,Grateful Dead,Rock
+265,1959,The Genius of Ray Charles,Ray Charles,Jazz
+266,1968,Child Is Father to the Man,Blood Sweat & Tears,Rock
+267,1973,Quadrophenia,The Who,Rock
+268,1972,Paul Simon,Paul Simon,Rock
+269,1985,Psychocandy,The Jesus and Mary Chain,Rock
+270,1978,Some Girls,The Rolling Stones,Rock
+271,1965,The Beach Boys Today!,The Beach Boys,Rock
+272,1997,Dig Me Out,Sleater Kinney,Rock
+273,1966,Going to a Go-Go,Smokey Robinson & The Miracles,Funk
+274,1974,Nightbirds,LaBelle,Funk
+275,1999,The Slim Shady LP,Eminem,HipHop
+276,1975,Mothership Connection,Parliament,Funk
+277,1989,Rhythm Nation 1814,Janet Jackson,Electronic
+278,1997,Anthology of American Folk Music,Various,Blues
+279,1973,Aladdin Sane,David Bowie,Rock
+280,2000,All That You Can't Leave Behind,U2,Rock
+281,1994,My Life,Mary J. Blige,HipHop
+282,1964,Folk Singer,Muddy Waters,Blues
+283,1974,Can't Get Enough,Barry White,Funk
+284,1978,The Cars,The Cars,Electronic
+285,1972,Music of My Mind,Stevie Wonder,Funk
+286,1972,I'm Still in Love With You,Al Green,Funk
+287,1980,Los Angeles,X,Rock
+288,1968,Anthem of the Sun,Grateful Dead,Rock
+289,1967,Something Else by The Kinks,The Kinks,Rock
+290,1973,Call Me,Al Green,Funk
+291,1977,Talking Heads: 77,Talking Heads,Rock
+292,1975,The Basement Tapes,Bob Dylan and the Band,Rock
+293,1968,White Light/White Heat,The Velvet Underground,Rock
+294,1969,Kick Out the Jams,MC5,Rock
+295,1970,Songs of Love and Hate,Leonard Cohen,Folk
+296,1985,Meat Is Murder,The Smiths,Rock
+297,1968,We're Only in It for the Money,The Mothers of Invention,Electronic
+298,2003,The College Dropout,Kanye West,HipHop
+299,1994,Weezer (Blue Album),Weezer,Rock
+300,1971,Master of Reality,Black Sabbath,Rock
+301,1971,Coat of Many Colors,Dolly Parton,Folk
+302,1990,Fear of a Black Planet,Public Enemy,HipHop
+303,1967,John Wesley Harding,Bob Dylan,Rock
+304,1994,Grace,Jeff Buckley,Rock
+305,1998,Car Wheels on a Gravel Road,Lucinda Williams,Folk
+306,1996,Odelay,Beck,Electronic
+307,1964,A Hard Day's Night,The Beatles,Rock
+308,1956,Songs for Swingin' Lovers!,Frank Sinatra,Jazz
+309,1969,Willy and the Poor Boys,Creedence Clearwater Revival,Rock
+310,1991,Blood Sugar Sex Magik,Red Hot Chili Peppers,Rock
+311,1994,The Sun Records Collection,Various,Rock
+312,1988,Nothing's Shocking,Jane's Addiction,Rock
+313,1994,MTV Unplugged in New York,Nirvana,Rock
+314,1998,The Miseducation of Lauryn Hill,Lauryn Hill,HipHop
+315,1979,Damn the Torpedoes,Tom Petty and the Heartbreakers,Rock
+316,1969,The Velvet Underground,The Velvet Underground,Rock
+317,1988,Surfer Rosa,Pixies,Rock
+318,1972,Back Stabbers,The O'Jays,Funk
+319,1973,Burnin',The Wailers,Reggae
+320,2001,Amnesiac,Radiohead,Electronic
+321,1972,Pink Moon,Nick Drake,Rock
+322,1972,Sail Away,Randy Newman,Rock
+323,1981,Ghost in the Machine,The Police,Rock
+324,1976,Station to Station,David Bowie,Rock
+325,1977,Slowhand,Eric Clapton,Rock
+326,1989,Disintegration,The Cure,Electronic
+327,1993,Exile in Guyville,Liz Phair,Rock
+328,1988,Daydream Nation,Sonic Youth,Rock
+329,1986,In the Jungle Groove,James Brown,Funk
+330,1975,Tonight's the Night,Neil Young,Rock
+331,1965,Help!,The Beatles,Rock
+332,1982,Shoot Out the Lights,Richard & Linda Thompson,Rock
+333,1981,Wild Gift,X,Rock
+334,1979,Squeezing Out Sparks,Graham Parker & The Rumour,Rock
+335,1994,Superunknown,Soundgarden,Rock
+336,2007,In Rainbows,Radiohead,Electronic
+337,1971,Aqualung,Jethro Tull,Rock
+338,1968,Cheap Thrills,Big Brother & the Holding Company,Rock
+339,1974,The Heart of Saturday Night,Tom Waits,Jazz
+340,1981,Damaged,Black Flag,Rock
+341,1999,Play,Moby,Electronic
+342,1990,Violator,Depeche Mode,Electronic
+343,1977,Bat Out of Hell,Meat Loaf,Rock
+344,1973,Berlin,Lou Reed,Rock
+345,1984,Stop Making Sense,Talking Heads,Rock
+346,1989,3 Feet High and Rising,De La Soul,HipHop
+347,1967,The Piper at the Gates of Dawn,Pink Floyd,Rock
+348,1960,Muddy Waters at Newport 1960,Muddy Waters,Rock
+349,2003,The Black Album,Jay Z,HipHop
+350,1966,Roger the Engineer,The Yardbirds,Rock
+351,1979,Rust Never Sleeps,Neil Young & Crazy Horse,Rock
+352,1985,Brothers in Arms,Dire Straits,Rock
+353,2010,My Beautiful Dark Twisted Fantasy,Kanye West,HipHop
+354,1978,52nd Street,Billy Joel,Jazz
+355,1965,Having a Rave Up,The Yardbirds,Rock
+356,1970,12 Songs,Randy Newman,Rock
+357,1967,Between the Buttons,The Rolling Stones,Rock
+358,1960,Sketches of Spain,Miles Davis,Jazz
+359,1972,Honky Château,Elton John,Rock
+360,1979,Singles Going Steady,Buzzcocks,Rock
+361,2000,Stankonia,OutKast,HipHop
+362,1993,Siamese Dream,The Smashing Pumpkins,Rock
+363,1987,Substance 1987,New Order,Electronic
+364,1971,L.A. Woman,The Doors,Rock
+365,1992,Rage Against the Machine,Rage Against the Machine,HipHop
+366,1994,American Recordings,Johnny Cash,Folk
+367,1998,Ray of Light,Madonna,Electronic
+368,1972,Eagles,Eagles,Rock
+369,1987,Louder Than Bombs,The Smiths,Rock
+370,1973,Mott,Mott the Hoople,Rock
+371,2006,Whatever People Say I Am That's What I'm Not,Arctic Monkeys,Rock
+372,1979,Reggatta de Blanc,The Police,Rock
+373,1969,Volunteers,Jefferson Airplane,Rock
+374,1975,Siren,Roxy Music,Rock
+375,1974,Late for the Sky,Jackson Browne,Rock
+376,1995,Post,Bjork,Electronic
+377,1991,The Ultimate Collection: 1948-1990,John Lee Hooker,Blues
+378,1995,(What's the Story) Morning Glory?,Oasis,Rock
+379,1994,CrazySexyCool,TLC,Electronic
+380,1973,Funky Kingston,Toots & The Maytals,Reggae
+381,2011,The Smile Sessions,The Beach Boys,Rock
+382,1976,The Modern Lovers,The Modern Lovers,Rock
+383,1978,More Songs About Buildings and Food,Talking Heads,Rock
+384,1966,A Quick One,The Who,Rock
+385,2001,Love and Theft,Bob Dylan,Rock
+386,1974,Pretzel Logic,Steely Dan,Jazz
+387,1993,Enter the Wu_Tang: 36 Chambers,Wu Tang Clan,HipHop
+388,1985,The Indestructible Beat of Soweto,Various Artists,Funk
+389,1989,The End of the Innocence,Don Henley,Rock
+390,2003,Elephant,The White Stripes,Rock
+391,1976,The Pretender,Jackson Browne,Rock
+392,1970,Let It Be,The Beatles,Rock
+393,2007,Kala,M.I.A.,Electronic
+394,1974,Good Old Boys,Randy Newman,Rock
+395,2007,Sound of Silver,LCD Soundsystem,Electronic
+396,1973,For Your Pleasure,Roxy Music,Rock
+397,1991,Blue Lines,Massive Attack,Electronic
+398,1983,Eliminator,ZZ Top,Rock
+399,1985,Rain Dogs,Tom Waits,Rock
+400,1995,Anthology: The Best of The Temptations,The Temptations,Electronic
+401,1999,Californication,Red Hot Chili Peppers,Rock
+402,1994,Illmatic,Nas,HipHop
+403,1973,(pronounced 'leh-'nerd 'skin-'nerd),Lynyrd Skynyrd,Rock
+404,1972,Dr. John's Gumbo,Dr. John,Funk
+405,1974,Radio City,Big Star,Rock
+406,1993,Rid of Me,PJ Harvey,Rock
+407,1980,Sandinista!,The Clash,Rock
+408,1989,I Do Not Want What I Haven't Got,Sinead O'Connor,Rock
+409,1967,Strange Days,The Doors,Rock
+410,1997,Time Out of Mind,Bob Dylan,Rock
+411,1974,461 Ocean Boulevard,Eric Clapton,Rock
+412,1977,Pink Flag,Wire,Rock
+413,1984,Double Nickels on the Dime,Minutemen,Rock
+414,1981,Beauty and the Beat,The Go Go's,Rock
+415,1978,Van Halen,Van Halen,Rock
+416,1999,Mule Variations,Tom Waits,Electronic
+417,1980,Boy,U2,Rock
+418,1973,Band on the Run,Paul McCartney & Wings,Rock
+419,1994,Dummy,Portishead,Electronic
+420,1957,The Chirping Crickets,The Crickets,Rock
+421,1990,The Best of the Girl Groups Volume 1,Various Artists,Rock
+422,1963,Presenting the Fabulous Ronettes Featuring Veronica,The Ronettes,Rock
+423,2001,Anthology,Diana Ross & The Supremes,Electronic
+424,2002,The Rising,Bruce Springsteen,Rock
+425,1974,Grievous Angel,Gram Parsons,Rock
+426,1978,Cheap Trick at Budokan,Cheap Trick,Rock
+427,2002,Sleepless,Peter Wolf,Rock
+428,1978,Outlandos d'Amour,The Police,Rock
+429,1975,Another Green World,Brian Eno,Electronic
+430,2007,Vampire Weekend,Vampire Weekend,Rock
+431,2000,Stories From the City Stories From the Sea,PJ Harvey,Rock
+432,1973,Here Come the Warm Jets,Brian Eno,Rock
+433,1970,All Things Must Pass,George Harrison,Rock
+434,1972,#1 Record,Big Star,Rock
+435,1993,In Utero,Nirvana,Rock
+436,2002,Sea Change,Beck,Rock
+437,2008,Tha Carter III,Lil Wayne,HipHop
+438,1979,Boys Don't Cry,The Cure,Rock
+439,1985,Live at the Harlem Square Club 1963,Sam Cooke,Funk
+440,1985,Rum Sodomy & the Lash,The Pogues,Rock
+441,1977,Suicide,Suicide,Electronic
+442,1978,Q: Are We Not Men? A: We Are Devo!,DEVO,Rock
+443,1977,In Color,Cheap Trick,Rock
+444,1972,The World Is a Ghetto,War,Funk
+445,1976,Fly Like an Eagle,Steve Miller Band,Rock
+446,1970,Back in the USA,MC5,Rock
+447,1964,Getz / Gilberto,Stan Getz / Joao Gilberto featuring Antonio Carlos Jobim,Jazz
+448,1983,Synchronicity,The Police,Rock
+449,1978,Third/Sister Lovers,Big Star,Rock
+450,1973,For Everyman,Jackson Browne,Rock
+451,2006,Back to Black,Amy Winehouse,Funk
+452,1971,John Prine,John Prine,Folk
+453,1987,Strictly Business,EPMD,HipHop
+454,1971,Love It to Death,Alice Cooper,Rock
+455,1984,How Will the Wolf Survive?,Los Lobos,Rock
+456,1978,Here My Dear,Marvin Gaye,Funk
+457,2005,Z,My Morning Jacket,Rock
+458,1970,Tumbleweed Connection,Elton John,Rock
+459,1968,The Drifters' Golden Hits,The Drifters,Rock
+460,1994,Live Through This,Hole,Rock
+461,1979,Metal Box,Public Image Ltd.,Electronic
+462,1987,Document,R.E.M.,Rock
+463,1981,Heaven Up Here,Echo and The Bunnymen,Rock
+464,1987,Hysteria,Def Leppard,Rock
+465,1999,69 Love Songs,The Magnetic Fields,Electronic
+466,2002,A Rush of Blood to the Head,Coldplay,Rock
+467,1987,Tunnel of Love,Bruce Springsteen,Rock
+468,1965,The Paul Butterfield Blues Band,The Paul Butterfield Blues Band,Rock
+469,1996,The Score,Fugees,HipHop
+470,1985,Radio,L.L. Cool J,HipHop
+471,1974,I Want to See the Bright Lights Tonight,Richard & Linda Thompson,Rock
+472,1987,Faith,George Michael,Electronic
+473,1984,The Smiths,The Smiths,Rock
+474,2001,Proxima estacion: Esperanza,Manu Chao,Rock
+475,1979,Armed Forces,Elvis Costello & The Attractions,Rock
+476,1997,Life After Death,The Notorious B.I.G.,HipHop
+477,1996,Down Every Road,Merle Haggard,Folk
+478,2002,All Time Greatest Hits,Loretta Lynn,Folk
+479,1971,Maggot Brain,Funkadelic,Rock
+480,1995,Only Built 4 Cuban Linx,Raekwon,HipHop
+481,2000,Voodoo,D'Angelo,HipHop
+482,1986,Guitar Town,Steve Earle,Rock
+483,1979,Entertainment!,Gang of Four,Rock
+484,1972,All the Young Dudes,Mott the Hoople,Rock
+485,1994,Vitalogy,Pearl Jam,Rock
+486,1975,That's the Way of the World,Earth Wind & Fire,Funk
+487,1983,She's So Unusual,Cyndi Lauper,Electronic
+488,1985,New Day Rising,Husker Du,Rock
+489,1976,Destroyer,KISS,Rock
+490,1973,Tres hombres,ZZ Top,Rock
+491,1967,Born Under a Bad Sign,Albert King,Funk
+492,1983,Touch,Eurythmics,Electronic
+493,2002,Yankee Hotel Foxtrot,Wilco,Rock
+494,2007,Oracular Spectacular,MGMT,Electronic
+495,1972,Give It Up,Bonnie Raitt,Rock
+496,1969,Boz Scaggs,Boz Scaggs,Rock
+497,2001,White Blood Cells,The White Stripes,Rock
+498,1989,The Stone Roses,The Stone Roses,Rock
+499,1971,Live in Cook County Jail,B.B. King,Blues
+500,1998,Aquemini,OutKast,HipHop
