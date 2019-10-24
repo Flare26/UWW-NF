@@ -20,20 +20,23 @@ public class InputHandler {
 			ynAllowed = true;
 	}
 	
-	public Object getInput(int choices) {
+	public char getInput(int choices) {
 		Scanner console = new Scanner(System.in);
 		String input = console.nextLine();
+		//make sure it is always lowercast
+		input.toLowerCase();
 		boolean iIsValid = inputIsValid(input , choices);
 		//inputIsValid will only return true if input is valid.... if not keep looping
 		while (!iIsValid) {
 			input = "";
 			System.out.println("!!! Please enter a valid input : ");
 			input = console.nextLine();
+			input.toLowerCase();
 			iIsValid = inputIsValid (input, choices);
 		}
 		System.out.println("Valid input detected! :) >" + input);
 		console.close();
-		return input;
+		return input.charAt(0);
 	}
 	
 	public boolean inputIsValid(String input , int choices) {
@@ -44,7 +47,7 @@ public class InputHandler {
 			isval = true;
 			return true;
 		} else {
-			if ( ( input.toLowerCase().charAt(0) == 'y' ) || input.toLowerCase().charAt(0) == 'n' ) {
+			if ( ( input.charAt(0) == 'y' ) || input.charAt(0) == 'n' ) {
 				isval = false;
 				if ( ynAllowed )
 					isval = true;
@@ -54,6 +57,13 @@ public class InputHandler {
 				return isval;
 			}
 		}	
+	}
+	
+	public String scannerName(){
+	    Scanner console=new Scanner(System.in);
+	    String input=console.nextLine();
+	    console.close();
+	    return input;
 	}
 	
 }
