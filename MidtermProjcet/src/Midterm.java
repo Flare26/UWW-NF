@@ -1,14 +1,13 @@
-public class Midterm{
-	
-	//Try creating a new save file, then loading it a few times! 
+public class Midterm{ 
 	
     private static Player player1;
     
     public static void main(String[] args){
     	GameSave gameSaver = new GameSave();
     	InputHandler input = new InputHandler();
-        System.out.println("Welcome to Live Another Day.\n\nDo you want to start a new game?");
-        input.setYNOnly(true);
+    	input.setYNOnly(true);
+        System.out.println("Welcome to Live Another Day.\n\nDo you want to start a new game?\n\t( To exit, type 'quit' )");
+        
         
         if( input.getInput(0) == ( 'y' ) ) {
         	
@@ -19,7 +18,7 @@ public class Midterm{
             gameSaver.writePlayer( player1 );
             
         } else {
-        	System.out.println("Enter the name of your save : ");
+        	System.out.println("Enter the name of an existing save : ");
             player1 = (Player) gameSaver.loadPlayer( input.scannerName() );
             //Test to see if data loaded correctly
             System.out.println(player1.toString());
@@ -30,6 +29,7 @@ public class Midterm{
     }
     
     public static void example() { 
+    	//example() just deals 34 damage and tries to save the player.
     	//If you keep loading the same save file it will keep dealing 34 damage!!! 
     	GameSave gameSaver = new GameSave();
         System.out.printf("EXAMPLE : %s\'s HP is %d.\n" , player1.getName(),  player1.getHealth());

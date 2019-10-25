@@ -30,6 +30,11 @@ public class InputHandler {
 		String input = console.nextLine();
 		//make sure it is always lowercase
 		input.toLowerCase();
+		input.trim();
+		//First things first check if they're quitting
+		if ( input.equalsIgnoreCase("quit") )
+			close();
+		
 		boolean iIsValid = inputIsValid(input , choices);
 		//inputIsValid will only return true if input is valid.... if not keep looping
 		while ( ! iIsValid ) {
@@ -67,12 +72,17 @@ public class InputHandler {
 	public String scannerName() {
 	    String name = "DEFAULT";
 	    name = console.nextLine();
+	    name.toLowerCase();
+	    name.trim();
+	    if (name.equalsIgnoreCase("quit"))
+	    	close();
 	    return name;
 	}
 	
-	public void close() {
-		System.out.println("Closing scanner...");
+	private void close() {
+		System.out.println("Goodbye...");
 		console.close();
+		System.exit(0);
 		return;
 	}
  	
