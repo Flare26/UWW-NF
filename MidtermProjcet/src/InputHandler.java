@@ -1,11 +1,17 @@
+//Nathan Frazier InputHandler
 import java.util.Scanner;
-
+/* setYNAllowed - will keep looping for input until number detected
+ * setYNOnly - will keep looping until y / n
+ * always returns char value of the input charAt(0) / the char at index 0
+ */
 public class InputHandler {
 	
 	//True by default - controls whether or not input handler will accept yes or no
 	private boolean ynAllowed = true;
 	//False by default - controls whether or not ONLY to accept yes / no
 	private boolean ynOnly = false;
+	//instead of local vars, making scanner an instance var
+	private Scanner console = new Scanner(System.in);
 	
 	public InputHandler() {
 	}
@@ -21,13 +27,12 @@ public class InputHandler {
 	}
 	
 	public char getInput(int choices) {
-		Scanner console = new Scanner(System.in);
 		String input = console.nextLine();
-		//make sure it is always lowercast
+		//make sure it is always lowercase
 		input.toLowerCase();
 		boolean iIsValid = inputIsValid(input , choices);
 		//inputIsValid will only return true if input is valid.... if not keep looping
-		while (!iIsValid) {
+		while ( ! iIsValid ) {
 			input = "";
 			System.out.println("!!! Please enter a valid input : ");
 			input = console.nextLine();
@@ -35,7 +40,6 @@ public class InputHandler {
 			iIsValid = inputIsValid (input, choices);
 		}
 		System.out.println("Valid input detected! :) >" + input);
-		console.close();
 		return input.charAt(0);
 	}
 	
@@ -43,9 +47,10 @@ public class InputHandler {
 		boolean isval;
 		if ( Character.getNumericValue( input.charAt(0) ) > 0 
 				&& Character.getNumericValue( input.charAt(0) ) <= choices 
-				&& !ynOnly) {
+				&& ! ynOnly ) {
 			isval = true;
 			return true;
+			//True as long as : not negative, not over the amount of choices, ynOnly is false
 		} else {
 			if ( ( input.charAt(0) == 'y' ) || input.charAt(0) == 'n' ) {
 				isval = false;
@@ -59,11 +64,16 @@ public class InputHandler {
 		}	
 	}
 	
-	public String scannerName(){
-	    Scanner console=new Scanner(System.in);
-	    String input=console.nextLine();
-	    console.close();
-	    return input;
+	public String scannerName() {
+	    String name = "DEFAULT";
+	    name = console.nextLine();
+	    return name;
 	}
 	
+	public void close() {
+		System.out.println("Closing scanner...");
+		console.close();
+		return;
+	}
+ 	
 }
