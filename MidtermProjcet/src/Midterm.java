@@ -36,12 +36,10 @@ public class Midterm{
             input.getInput(3);
         }
         else{
-
+        	q1.result("You continue on your way...");
         }
         //InputHandler q1=new InputHandler();
         //q1.setYNOnly(true);
-
-        example();
 
     }
 

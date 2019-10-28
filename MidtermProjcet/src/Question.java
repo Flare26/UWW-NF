@@ -26,6 +26,7 @@ public class Question{
     }
     
     public String result(String answer){
+    	System.out.println(answer);
         return answer;
     }
     

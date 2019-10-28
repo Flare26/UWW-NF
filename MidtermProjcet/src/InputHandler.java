@@ -27,6 +27,7 @@ public class InputHandler {
 	}
 	
 	public char getInput(int choices) {
+		boolean iIsValid;
 		String input = console.nextLine();
 		//make sure it is always lowercase
 		input.toLowerCase();
@@ -35,7 +36,7 @@ public class InputHandler {
 		if ( input.equalsIgnoreCase("quit") )
 			close();
 		
-		boolean iIsValid = inputIsValid(input , choices);
+		iIsValid = inputIsValid(input , choices);
 		//inputIsValid will only return true if input is valid.... if not keep looping
 		while ( ! iIsValid ) {
 			input = "";
@@ -47,11 +48,11 @@ public class InputHandler {
 				close();
 			iIsValid = inputIsValid (input, choices);
 		}
-		System.out.println("Valid input detected! :) >" + input);
+		System.out.printf("iIsValid : %s\t---> return %s\n", iIsValid, input);
 		return input.charAt(0);
 	}
 	
-	public boolean inputIsValid(String input , int choices) {
+	private boolean inputIsValid(String input , int choices) {
 		//Takes into consideration the class booleans ynOnly & ynAllowed
 		boolean isval;
 		if ( Character.getNumericValue( input.charAt(0) ) > 0 
