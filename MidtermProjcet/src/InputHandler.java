@@ -42,6 +42,9 @@ public class InputHandler {
 			System.out.println("!!! Please enter a valid input : ");
 			input = console.nextLine();
 			input.toLowerCase();
+			//Check for quit on retry
+			if ( input.equalsIgnoreCase("quit") )
+				close();
 			iIsValid = inputIsValid (input, choices);
 		}
 		System.out.println("Valid input detected! :) >" + input);
@@ -49,6 +52,7 @@ public class InputHandler {
 	}
 	
 	public boolean inputIsValid(String input , int choices) {
+		//Takes into consideration the class booleans ynOnly & ynAllowed
 		boolean isval;
 		if ( Character.getNumericValue( input.charAt(0) ) > 0 
 				&& Character.getNumericValue( input.charAt(0) ) <= choices 
