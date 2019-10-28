@@ -18,6 +18,10 @@ public class Player implements Serializable{
         return health;
     }
     
+    public void setHealth(int health){
+        this.health=health;
+    }
+    
     public String getName(){
         return name;
     }
