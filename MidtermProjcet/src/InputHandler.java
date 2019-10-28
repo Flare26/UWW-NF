@@ -14,6 +14,7 @@ public class InputHandler {
 	private Scanner console = new Scanner(System.in);
 	
 	public InputHandler() {
+		//Default constructor will default to accept yes / no answers AND numbers
 	}
 	
 	public void setYNAllowed(boolean bool) {
@@ -22,12 +23,16 @@ public class InputHandler {
 	
 	public void setYNOnly(boolean bool) {
 		ynOnly = bool;
+		//If being set to a yes / no question, allow yes / no answers if not already
 		if (ynAllowed == false && ynOnly == true)
 			ynAllowed = true;
 	}
 	
 	public char getInput(int choices) {
 		boolean iIsValid;
+		
+		if ( ynOnly == true )
+			System.out.printf("(y/n) : ");
 		String input = console.nextLine();
 		//make sure it is always lowercase
 		input.toLowerCase();
@@ -48,7 +53,7 @@ public class InputHandler {
 				close();
 			iIsValid = inputIsValid (input, choices);
 		}
-		System.out.printf("iIsValid : %s\t---> return %s\n", iIsValid, input);
+		System.out.printf("iIsValid : %s\t---> return %s\n", iIsValid, input.charAt(0));
 		return input.charAt(0);
 	}
 	
@@ -85,9 +90,19 @@ public class InputHandler {
 	}
 	
 	private void close() {
-		System.out.println("Goodbye...");
-		console.close();
-		System.exit(0);
+		//Added a fun personalized goodbye message
+		// This works because if Midterm.player1 is initialized, it MUST have a name.
+		if ( ( Midterm.player1 instanceof Player ) == false ) {
+			System.out.println("\tGoodbye...");
+			console.close();
+			System.exit(0);
+		}
+				
+		else if ( Midterm.player1 instanceof Player) {
+			System.out.println("\tGoodbye. I hope you live another day, " + Midterm.player1.getName() + "...");
+			console.close();
+			System.exit(0);
+		}
 		return;
 	}
  	

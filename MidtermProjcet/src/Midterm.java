@@ -1,6 +1,6 @@
 public class Midterm{ 
 
-    private static Player player1;
+    public static Player player1;
 
     public static void main(String[] args){
         GameSave gameSaver = new GameSave();
@@ -36,7 +36,8 @@ public class Midterm{
             input.getInput(3);
         }
         else{
-        	q1.result("You continue on your way...");
+        	q1.result("No time for small talk. There's a test today , and you can't be bothered by wild stories of \"last night's party\".");
+        
         }
         //InputHandler q1=new InputHandler();
         //q1.setYNOnly(true);
