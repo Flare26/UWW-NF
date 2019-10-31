@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class InputHandler {
 	
 	//True by default - controls whether or not input handler will accept yes or no
-	private boolean ynAllowed = true;
+	private boolean ynAllowed = false;
 	//False by default - controls whether or not ONLY to accept yes / no
 	private boolean ynOnly = false;
 	//instead of local vars, making scanner an instance var
@@ -18,7 +18,8 @@ public class InputHandler {
 	}
 	
 	public void setYNAllowed(boolean bool) {
-		ynAllowed = bool;
+		if ( ynAllowed != bool )
+			ynAllowed = bool;
 	}
 	
 	public void setYNOnly(boolean bool) {
