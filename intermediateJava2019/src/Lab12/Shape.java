@@ -1,4 +1,4 @@
-
+//Nathan Frazier
 public abstract class Shape {
 	String name;
 	double area;
