@@ -2,13 +2,14 @@
 
 .data
     array db 15 dup(?)
-    sum db ?
+    
 .code
     begin : 
           
          
           lea SI , array
-          lea DI , array + 1
+          lea DI , array
+          inc DI
           mov array[SI] , 0  ; move 0 to index 0
           mov array[DI] , 1  ; move 1 to index 0 + 1
           
@@ -19,7 +20,8 @@
           
           mov CX, 13 ; 13 numbers to be generated, 0 and 1 already given
           fib:
-             
+             mov AL , 0
+             mov BL , 0
              mov AL , array[SI]  ; move the val at SI to AL
              mov BL , array[DI]  ; move the val at DI to BL
              add BL , AL    ; add AL and BL, sum will be at BL

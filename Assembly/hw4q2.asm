@@ -1,3 +1,4 @@
+; Nathan Frazier hw4 q2
 .data
 string dw 13    ; length value
        db 'Hello Welcome'
