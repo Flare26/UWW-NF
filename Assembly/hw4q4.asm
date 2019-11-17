@@ -9,7 +9,7 @@
          
           lea SI , array
           lea DI , array
-          inc DI
+          inc DI   ; DI = array[0+1]
           mov array[SI] , 0  ; move 0 to index array[0]
           mov array[DI] , 1  ; move 1 to index array[0 + 1]
           
