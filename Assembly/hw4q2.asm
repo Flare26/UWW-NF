@@ -1,4 +1,4 @@
-; Nathan Frazier hw4 q2
+; Nathan Frazier hw4 q2  Copy .length as dw and a string to new mem location
 .data
 string dw 13    ; length value
        db 'Hello Welcome'
@@ -6,7 +6,7 @@ str_copy db 80 dup('')
 
 .code 
     begin:
-    mov ax, @data
+    ;mov ax, @data
     lea si, string
     lea di, str_copy ; move destination mem index to the start of str_copy
     
@@ -25,7 +25,7 @@ str_copy db 80 dup('')
     inc di
     inc si
     .
-    .
+    .                     
     loop L1
     hlt
  
