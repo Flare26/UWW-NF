@@ -3,14 +3,6 @@
 public class TreasureMap {
 	
 	public Instruction [] instruction_List; //Contains up to 5 instruction objects
-	private Direction [] dirs;
-	private int [] paces;
-	
-	TreasureMap(Instruction [] list) {
-		// If only instruction [] is being passed in, it MUST be a clone
-		this.instruction_List = list;
-		
-	}
 	
 	TreasureMap() {
 		this.instruction_List = new Instruction [2];
@@ -19,47 +11,28 @@ public class TreasureMap {
 		System.out.println("This treasure map doesn't seem very useful...");
 	}
 	
+	TreasureMap(Instruction [] list) {
+		// If only instruction [] is being passed in, it MUST be a clone
+		this.instruction_List = list;
+		
+	}
+	
 	// 2 instuctions
 	TreasureMap(Direction d, Direction e, int dp , int ep) {
-		instruction_List = new Instruction [2];
-		dirs = new Direction [] { d , e } ;
-		paces = new int [] { dp, ep } ;
-		
-		for ( int y = 0 ; y < instruction_List.length ; y ++ ) {
-			instruction_List[y] = new Instruction(dirs[y] , paces[y]);
-		}
-		
-		}
+		instruction_List = new Instruction [] { new Instruction(d , dp) , new Instruction(e , ep) };
+	}
 	// 3 inst
 	TreasureMap(Direction d, Direction e, Direction f, int dp, int ep, int fp) {
-		instruction_List = new Instruction [3];
-		dirs = new Direction [] { d , e , f } ;
-		paces = new int [] { dp, ep , fp } ;
-		
-		for ( int y = 0 ; y < instruction_List.length ; y ++ ) {
-			instruction_List[y] = new Instruction(dirs[y] , paces[y]);
-		}
-		}
+		instruction_List = new Instruction [] { new Instruction(d , dp) , new Instruction(e , ep) , new Instruction( f , fp ) };
+	}
 		
 	// 4 inst
 	TreasureMap(Direction d, Direction e, Direction f, Direction g , int dp, int ep, int fp, int gp) {
-		instruction_List = new Instruction [4];
-		dirs = new Direction [] { d , e , f, g } ;
-		paces = new int [] { dp, ep , fp , gp } ;
-		
-		for ( int y = 0 ; y < instruction_List.length ; y ++ ) {
-			instruction_List[y] = new Instruction(dirs[y] , paces[y]);
-		}
+		instruction_List = new Instruction [] { new Instruction(d , dp), new Instruction(e, ep), new Instruction(f, fp), new Instruction(g, gp) };
 	}
 	// 5 inst
 	TreasureMap(Direction d, Direction e, Direction f, Direction g, Direction h, int dp, int ep, int fp, int gp, int hp) {
-		instruction_List = new Instruction [5];
-		dirs = new Direction [] { d , e , f , g , h } ;
-		paces = new int [] { dp, ep , fp , gp , hp } ;
-		
-		for ( int y = 0 ; y < instruction_List.length ; y ++ ) {
-			instruction_List[y] = new Instruction(dirs[y] , paces[y]);
-		}
+		instruction_List = new Instruction [] { new Instruction(d , dp), new Instruction(e, ep), new Instruction(f, fp), new Instruction(g, gp), new Instruction(h , hp) };
 		
 	}
 	
@@ -106,8 +79,8 @@ public class TreasureMap {
 	}
 	
 	
-	class Instruction {
-		
+	private class Instruction {
+		// An instruction takes a DIRECTION and # PACES.
 		Direction D;
 		int PACES;
 		
