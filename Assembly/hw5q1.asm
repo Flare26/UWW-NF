@@ -1,5 +1,7 @@
 ; multi-segment executable file template.
 
+; Nathan Frazier hw 5 q 1 based off template
+
 data segment
     ; add your data here!
     
