@@ -21,7 +21,7 @@ def main():
     input_list = userin.split(" ") # split into a list, whitespace delimiter
     print("Your input =", input_list)
     # split returns a list index for what's before AND after the delim. Ending with a space makes a null obj.
-    input_list = list(filter(None, input_list)) # filter() will take an object, and an iterable. Filters null vals
+    input_list = list(filter(None, input_list)) # filter() will take an object, and an iterable. This filters null vals
 
     # START OPTIONAL ERROR CHECKING
     # check for anything to make the input_isvalid flag = False ( if they enter a non-digit )

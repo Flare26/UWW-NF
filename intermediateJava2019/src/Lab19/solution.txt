@@ -1,0 +1,145 @@
+Unique Provinces and States:
+	AZ                                                
+	OH                                                
+	NY                                                
+	MO                                                
+	CO                                                
+	MB                                                
+	PA                                                
+	MN                                                
+	AB                                                
+	CA                                                
+	NC                                                
+	NV                                                
+	MA                                                
+	FL                                                
+	BC                                                
+	ON                                                
+	IL                                                
+	NJ                                                
+	TN                                                
+	TX                                                
+	DC                                                
+	MI                                                
+	QC                                                
+
+Number of Teams In Each Country:
+	Country                                                          Teams
+	CAN                                                                  7
+	USA                                                                 24
+
+Teams (Sorted by Name):
+	Anaheim Ducks (est. 1993)                         
+	Arizona Coyotes (est. 1972)                       
+	Boston Bruins (est. 1924)                         
+	Buffalo Sabres (est. 1970)                        
+	Calgary Flames (est. 1967)                        
+	Carolina Hurricanes (est. 1972)                   
+	Chicago Blackhawks (est. 1926)                    
+	Colorado Avalanche (est. 1972)                    
+	Columbus Blue Jackets (est. 2000)                 
+	Dallas Stars (est. 1967)                          
+	Detroit Red Wings (est. 1926)                     
+	Edmonton Oilers (est. 1972)                       
+	Florida Panthers (est. 1993)                      
+	Los Angeles Kings (est. 1967)                     
+	Minnesota Wild (est. 2000)                        
+	Montreal Canadiens (est. 1909)                    
+	Nashville Predators (est. 1998)                   
+	New Jersey Devils (est. 1974)                     
+	New York Islanders (est. 1972)                    
+	New York Rangers (est. 1926)                      
+	Ottawa Senators (est. 1992)                       
+	Philadelphia Flyers (est. 1967)                   
+	Pittsburgh Penguins (est. 1967)                   
+	San Jose Sharks (est. 1991)                       
+	St. Louis Blues (est. 1967)                       
+	Tampa Bay Lightning (est. 1992)                   
+	Toronto Maple Leafs (est. 1917)                   
+	Vancouver Canucks (est. 1945)                     
+	Vegas Golden Knights (est. 2017)                  
+	Washington Capitals (est. 1974)                   
+	Winnipeg Jets (est. 1999)                         
+
+Teams (Sorted by Province or State):
+	Calgary Flames (est. 1967)                        
+	Edmonton Oilers (est. 1972)                       
+	Arizona Coyotes (est. 1972)                       
+	Vancouver Canucks (est. 1945)                     
+	Anaheim Ducks (est. 1993)                         
+	Los Angeles Kings (est. 1967)                     
+	San Jose Sharks (est. 1991)                       
+	Colorado Avalanche (est. 1972)                    
+	Washington Capitals (est. 1974)                   
+	Florida Panthers (est. 1993)                      
+	Tampa Bay Lightning (est. 1992)                   
+	Chicago Blackhawks (est. 1926)                    
+	Boston Bruins (est. 1924)                         
+	Winnipeg Jets (est. 1999)                         
+	Detroit Red Wings (est. 1926)                     
+	Minnesota Wild (est. 2000)                        
+	St. Louis Blues (est. 1967)                       
+	Carolina Hurricanes (est. 1972)                   
+	New Jersey Devils (est. 1974)                     
+	Vegas Golden Knights (est. 2017)                  
+	Buffalo Sabres (est. 1970)                        
+	New York Islanders (est. 1972)                    
+	New York Rangers (est. 1926)                      
+	Columbus Blue Jackets (est. 2000)                 
+	Ottawa Senators (est. 1992)                       
+	Toronto Maple Leafs (est. 1917)                   
+	Philadelphia Flyers (est. 1967)                   
+	Pittsburgh Penguins (est. 1967)                   
+	Montreal Canadiens (est. 1909)                    
+	Nashville Predators (est. 1998)                   
+	Dallas Stars (est. 1967)                          
+
+Teams (Sorted by Year then Name):
+	Montreal Canadiens (est. 1909)                    
+	Toronto Maple Leafs (est. 1917)                   
+	Boston Bruins (est. 1924)                         
+	Chicago Blackhawks (est. 1926)                    
+	Detroit Red Wings (est. 1926)                     
+	New York Rangers (est. 1926)                      
+	Vancouver Canucks (est. 1945)                     
+	Calgary Flames (est. 1967)                        
+	Dallas Stars (est. 1967)                          
+	Los Angeles Kings (est. 1967)                     
+	Philadelphia Flyers (est. 1967)                   
+	Pittsburgh Penguins (est. 1967)                   
+	St. Louis Blues (est. 1967)                       
+	Buffalo Sabres (est. 1970)                        
+	Arizona Coyotes (est. 1972)                       
+	Carolina Hurricanes (est. 1972)                   
+	Colorado Avalanche (est. 1972)                    
+	Edmonton Oilers (est. 1972)                       
+	New York Islanders (est. 1972)                    
+	New Jersey Devils (est. 1974)                     
+	Washington Capitals (est. 1974)                   
+	San Jose Sharks (est. 1991)                       
+	Ottawa Senators (est. 1992)                       
+	Tampa Bay Lightning (est. 1992)                   
+	Anaheim Ducks (est. 1993)                         
+	Florida Panthers (est. 1993)                      
+	Nashville Predators (est. 1998)                   
+	Winnipeg Jets (est. 1999)                         
+	Columbus Blue Jackets (est. 2000)                 
+	Minnesota Wild (est. 2000)                        
+	Vegas Golden Knights (est. 2017)                  
+
+Teams From California:
+	Los Angeles Kings (est. 1967)                     
+	San Jose Sharks (est. 1991)                       
+	Anaheim Ducks (est. 1993)                         
+
+Teams From New York:
+	New York Rangers (est. 1926)                      
+	Buffalo Sabres (est. 1970)                        
+	New York Islanders (est. 1972)                    
+
+Teams From Illinois:
+	Chicago Blackhawks (est. 1926)                    
+
+Teams From Florida:
+	Tampa Bay Lightning (est. 1992)                   
+	Florida Panthers (est. 1993) 
