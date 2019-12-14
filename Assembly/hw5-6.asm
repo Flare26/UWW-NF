@@ -1,20 +1,31 @@
 ; multi-segment executable file template.
-; Nathan Frazier HW 5 - 5  
+; Nathan Frazier HW 5 - 6  
 
 ; 10h-2 {DH=row}{DL=column}
 ; 0710:0000 entry point
 data segment   ; ULR, ULC, BRR, BRC
-    boxes    db  5,10,20,70  ; first box
+    boxes        db  5,10,20,70  ; first box
+                 db  08h  
+                 
                  db  12,20,18,60 ; second box
+                 db  0Ch ; light green
+                 
                  db  1,5,3,10    ; third box
+                 db  0Dh
+                 
                  db  5,60,24,79  ; fourth box
+                 db  0Ah
+                 
                  db  5,25,18,75  ; fifth box
+                 db  0Eh 
+                 
     ; declare temp variables 
     boxtally db 0            
     ULrow db ?
     ULcol db ?
     BRrow db ?
     BRcol db ?
+    ccode db ? ; COLOR CODE
     
 ends
 
@@ -43,7 +54,7 @@ start:
      
     
     ; 'STACKEM' needs to ALSO prep the memory then immediately go into DRAW label.
-    mov cx, 4 ; Execute 4 times DO NOT CHANGE 
+    mov cx, 5 
     STACKEM:
        ; first, check if we drew all boxes already
         
@@ -53,7 +64,9 @@ start:
        
     ; Once the next 4 values are read, make temp copies that will be overwritten every STACKEM.
     ; AX is 16 bit and BRcol is 8 bit which = error . To sidestep this, AX register for db's is AL. Use AL.
-      
+       
+       pop ax
+       mov ccode, al ; stores color code first since it went in last
        pop ax
        mov BRcol, al 
        pop ax
@@ -75,9 +88,10 @@ start:
         
         int 10h    ; execute cursor move
         ; WRITE CHAR bottom right corner
-        mov ah, 0Ah      ; write char no attrib
+        mov ah, 09h     ; write char no attrib
         mov cx, 1        ;print the corner in bottom right once  
         mov al, 217      ; ascii
+        mov bl, ccode
         
         int 10h         ; execute char write 
         
@@ -92,16 +106,18 @@ start:
         dec dh ; decrement, cursor will jump up 1 line above the B R corner              
          int 10h ; executes the row jump
          
-         mov ah, 0Ah ; write char no attrib      10h-0Ah
-         mov al, 179 ; ascii vertical line    
+         mov ah, 09h ; write char no attrib      10h-0Ah
+         mov al, 179 ; ascii vertical line
+         mov bl, ccode    
             int 10h ; execute char write 
          
          
          jmp REDGE ; repeat, LOOPS INFINITELY UNTIL DH = STARTING ROW
         
         RC: ; draw top right corner
-        mov ah, 0Ah
+        mov ah, 09h
         mov al, 191
+        mov bl, ccode
             int 10h
          
         ; END RIGHT EDGE DRAW, move cursor up one more and place upper right corner ascii then start from bottom left, rinse, repeat
@@ -113,9 +129,10 @@ start:
         
         int 10h 
         
-        mov ah, 0Ah      ; write char no attrib 
+        mov ah, 09h      ; write char no attrib 
         mov cx, 1        ; loop factor
-        mov al, 192      ; ascii L L corner char
+        mov al, 192      ; ascii L L corner char 
+        mov bl, ccode
         
         int 10h  ; execute char write 10h-0Ah
                  ; while the cursor is already at bottom left, decrement to send it up the rows until it hits top row
@@ -129,8 +146,9 @@ start:
         dec dh ; decrement, cursor will jump up 1 above the B L corner              
          int 10h ; executes the row jump
          
-         mov ah, 0Ah ; write char no attrib 
-         mov al, 179 ; ascii vertical line    
+         mov ah, 09h ; write char no attrib 
+         mov al, 179 ; ascii vertical line
+         mov bl, ccode    
             int 10h ; execute 10h - 0Ah 
          
          
@@ -142,8 +160,9 @@ start:
                                                 ; draw top edge until cursor hits BRcol aka the rightmost column val 
                                                     
         ; write upper left corner char then move cursor + 1 col
-        mov ah, 0Ah
+        mov ah, 09h
         mov al, 218
+        mov bl, ccode
         mov cx, 1
         int 10h ;print the corner in upper left 
         
@@ -159,10 +178,16 @@ start:
         cmp dl, BRcol
         je BECP ; jump to bottom edge label if cursor col = rightmost col
                  ;else....                  
-        mov ah, 0Eh         ; print char, advance cursor horizontally
-        mov al, 196         ; set char -
+        mov ah, 09h         ; print char, advance cursor horizontally
+        mov al, 196
+        mov bl, ccode        
         mov cx, 1
-        int 10h  ; execute 10h - 03h 
+        int 10h 
+        
+        mov ah, 02h        ; increment right
+        inc dl
+            int 10h
+            
         jmp TEDGE ; repeat until cursor col = rightmost col
         
         ; BEGIN BOTTOM EDGE CURSOR PREP
@@ -182,10 +207,15 @@ start:
         cmp dl, BRcol ; see if cursor has reached top row
         je  TALLY     ; BOX SHOULD BE FINISHED!!! exit the loop and add 1 victory to the tally variable.
    
-         mov ah, 0Eh ; write char no attrib 
+         mov ah, 09h ; write char no attrib 
          mov al, 196
+         mov bl, ccode
          mov cx, 1    
-            int 10h ; execute 10h - 0Ah 
+            int 10h 
+            
+         mov ah, 02h
+         inc dl
+            int 10h 
          
           jmp BEDGE ; repeat, LOOPS INFINITELY UNTIL DH = STARTING ROW
           

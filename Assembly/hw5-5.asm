@@ -99,12 +99,16 @@ start:
          
          jmp REDGE ; repeat, LOOPS INFINITELY UNTIL DH = STARTING ROW
         
-        RC: ; draw top right corner
+        RC: ; print right corner
         mov ah, 0Ah
         mov al, 191
             int 10h
+        
+        
          
         ; END RIGHT EDGE DRAW, move cursor up one more and place upper right corner ascii then start from bottom left, rinse, repeat
+        BOTTOMLEFT: 
+        
         ; bottom left edge (row, col) = BRrow, ULcol - since row remains constant for entire bottom...
         ;CURSOR PREP   
         mov ah, 2        ;set cursor 10h-2 
