@@ -1,5 +1,6 @@
 package core;
 
+import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -15,8 +16,10 @@ import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpHost;
@@ -48,7 +51,7 @@ public class CacheBuilder {
 	// 3 - Save map object to a serialized locations.tmp 
 	
 	
-	private Map<String , Short> map = new HashMap<String , Short>();
+	private Map<String , Long> map = new HashMap<String , Long>();
 	
 	public CacheBuilder() {
 		
@@ -59,22 +62,50 @@ public class CacheBuilder {
 		MapBuilder bob = new MapBuilder(clientsession); // pass api session from client
 		System.out.println("Building location map...");
 		bob.buildLocationMap(map);
-		System.out.println("Writing location cache...");
+		
 		cacheMap(map); // cache the location Name , ID map to a tmp file
+		
+		System.out.printf("»» API Locations map built & cached");
 	}
 	
-	public void cacheMap(Map<String, Short> hashmap) {
+	public Map<String, Long> getLocationHashMap(){ 
+		return map; // returns the hash map with locations
+	}
+	
+	public void cacheMap(Map<String, Long> hashmap) { 
+		//Right now this method only writes to txt, but eventually just write hashmap to serializable
+		System.out.println("cacheMap() hashmap.toString()=" + hashmap.toString());
+		//System.out.println("Testing JHS LC Chromebook Cart: " + hashmap.get("JHS LC Chromebook Cart"));
+		StringBuilder sb = new StringBuilder(); // Builder will keep map data in readable format for txt
+		
+		
+		try {
+			FileOutputStream hashlogger = new FileOutputStream("hashmap_log.txt"); 
+			BufferedOutputStream hashwriter = new BufferedOutputStream(hashlogger);
+			System.out.println("Writing location cache...");
+			// Maps are Iterable, they go by Entries NOT indexes. 
+			for (Map.Entry<String,Long> entry : hashmap.entrySet())  {
+	            sb.append("Key = " + entry.getKey() + 
+	                             ", Value = " + entry.getValue()+"\n----------\n"); 
+	    		} 
+			hashwriter.write(sb.toString().getBytes("UTF-8")); // getBytes gets byte [] for BOS
+			
+		} catch (IOException e) {
+			System.err.println("ERROR WRITING MAP<STR, LNG> TO 'hashmap_log.txt'");
+			e.printStackTrace();
+		}
 		
 	}
 	
-	
-class MapBuilder {
-	boolean endofpages = false;
-	String log_str = "";
-	final APISession apisession;
-	private String username;
-	private String password;
-	final String path;
+	// MapBuilder handles API pagination but A LOT of code is re-written from APISession
+	// Find a way to use inheritance or interfaces maybe?? abstract MapBuilder extends CacheBuilder?? 
+	class MapBuilder {
+		boolean endofpages = false;
+		String log_str = "";
+		final APISession apisession;
+		private String username;
+		private String password;
+		final String path;
 	
 		public MapBuilder (APISession clientsession) {
 			apisession = clientsession;
@@ -84,10 +115,10 @@ class MapBuilder {
 		}
 		
 		
-		public Map<String, Short> buildLocationMap(Map<String, Short> hash_map) {
+		public Map<String, Long> buildLocationMap(Map<String, Long> hash_map) {
 			List<JSONObject> results = new ArrayList<JSONObject> ();
 			HttpResponse response;
-			StringBuilder sb = new StringBuilder();
+			
 			RequestBuilder getBuilder = RequestBuilder.get(); // create a new get RequestBuilder
 			RequestConfig.Builder rcBuilder = RequestConfig.custom(); // rcBuilder creates request configs
 			HttpClientContext hccContext = HttpClientContext.create();
@@ -126,7 +157,7 @@ class MapBuilder {
 					        System.out.println("Executing /location...");
 					        // Execute:
 					        // WHILE LOOP WILL GRAB EACH PAGE
-					        int count = 1;
+					        int pgcount = 1;
 					        String pg = "1";
 					        while (endofpages == false) {
 					        builder.setParameter("page", pg );
@@ -136,7 +167,7 @@ class MapBuilder {
 					        HttpClient hc = hcBuilder.build();
 					        HttpUriRequest req = getBuilder.build();
 					        response = hc.execute(req, hccContext); // THIS IS THE REGION WHERE I NEED TO LOOOOP
-					        System.out.println("Awaiting response...");
+					        System.out.println("Awaiting response..." + " ?page=" + pg);
 					        // Print out:
 					        int response_status = response.getStatusLine().getStatusCode();
 					        System.out.println("CODE="+response_status);
@@ -146,48 +177,57 @@ class MapBuilder {
 					        InputStream is = body.getContent();
 					        BufferedReader br = new BufferedReader(new InputStreamReader(is, Charset.forName("utf-8")));
 					        String line = br.readLine();
-					        JSONObject nest = new JSONObject(line); // parses the nest
+					     
+					        JSONObject nest = new JSONObject(line); // parses the current nest
 					        
 					        if (  nest.getJSONArray("locations").isEmpty()  ) {
-					        	System.out.println("!! NO MORE PAGES - " + count);
+					        	System.out.println("!! PAGE EMPTY ; NO MORE PAGES - " + (pgcount-1));
 				        		endofpages = true; // if API is resturning empty, its the end!
 					        }
 					        
 					        // If API is still returning arrays with content in them...
 					        if (endofpages == false) {
-						        System.out.println("nest_STR=" + nest.toString());
+					        	
+						        //System.out.println("nest_STR=" + nest.toString());
 						        int objcount = 0; // count objects in this page's array
-						        JSONArray arr = nest.getJSONArray("locations"); // parse the location array
-						        for (Object x : arr) {
-						        	 results.add(new JSONObject(x.toString())); //add each object in array to ArrayList
-						        	 sb.append(x.toString());
+						        JSONArray page_array = nest.getJSONArray("locations"); // parse the location array
+						        for (int i = 0 ; i < page_array.length() ; i++) {
+						        	JSONObject current = page_array.getJSONObject(i);
+						        	 results.add(current); //add each object in array to ArrayList
+						        	 map.put(current.getString("name"), current.getLong("id"));
+						        	 
 						        	 objcount ++;
 						        }
 						       System.out.printf("%d objects sucesfully added to result list\t" , objcount);
-					
-						        	count ++;
-						        	System.out.println("!! END PG " + count);
-						        	pg = Integer.toString(count); // increment numeric but store as string
-						        	System.out.println(sb.toString());
-						        	
+						       pgcount ++;
 					       		} // END FOR OBJ X : ARR
-					        } // EXIT endofpages LOOP
+					        
+					        pg = Integer.toString(pgcount); // increment numeric but store as string
+				        	
+					        } // END endofpages LOOP
 					        // PAGE STRING BUILT, parse location object
 					   // create a text log of all objects pulled from their nests
 					        
-					        FileWriter writer = new FileWriter("json_locations.txt");
-							BufferedWriter bw = new BufferedWriter(writer);
+					        FileOutputStream writer = new FileOutputStream("location_log.txt");
+					        
+							BufferedOutputStream bw = new BufferedOutputStream(writer);
 							
-							location_objects = new JSONArray();
-							int objects_appended=0;
-							for (JSONObject location : results)
+							// This array will b printed to .txt & contains all un-nested locations
+							location_objects = new JSONArray(); 
+							
+							StringBuilder sb = new StringBuilder();
+							int index;
+							for (index = 0; index < results.size(); index++)
 							{
-								location_objects.put(location); // gathers all parsed objects into JSONArray location_objects
-								objects_appended++;
-							}
-							System.out.printf("\n# %d object strings appended to log_str\n",objects_appended);
+								
+								JSONObject location = results.get(index);
+								sb.append(location.toString());
+								location_objects.put(index , location); // gathers all parsed objects into JSONArray location_objects
 							
-							bw.write(location_objects.toString());
+							}
+							System.out.printf("\n# %d objects appended to location_objects\n",index);
+							
+							bw.write(location_objects.toString().getBytes("UTF-8"));
 							
 					     
 					} catch (MalformedURLException e) {
@@ -202,14 +242,10 @@ class MapBuilder {
 					} catch (Exception e) {
 						e.printStackTrace();
 					}
-				
-				 
-				
+
 				
 				System.out.printf("Query found %d result(s)...\n" , results.size());
-				
-						
-				
+		
 				return map;
 			}
 		
