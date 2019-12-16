@@ -1,6 +1,8 @@
 package client;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 import org.json.JSONArray;
@@ -22,6 +24,12 @@ public class clientNO_UI {
 		boolean quit = false;
 		CacheBuilder locationCb = new CacheBuilder();
 		locationCb.buildLocationMap(apisession);
+		HashMap<String, Long> locationmap = (HashMap<String, Long>) locationCb.getLocationHashMap();
+		for (Map.Entry<String,Long> entry : locationmap.entrySet() )
+		{
+			//using entrySet() on a hashmap returns an iterable set
+			//System.out.println(entry.getKey()); // key is the STR name
+		}
 		
 		
 		// END CACHE INITIALIZATION
