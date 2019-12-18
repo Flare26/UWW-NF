@@ -1,0 +1,63 @@
+the 1st, Washington, George
+the 2nd, Adams, John
+the 3rd, Jefferson, Thomas
+the 4th, Madison, James
+the 5th, Monroe, James
+the 6th, Adams, John Quincy
+the 7th, Jackson, Andrew
+the 8th, Buren, Martin Van
+the 9th, Harrison, William Henry
+the 10th, Tyler, John
+the 11th, Polk, James
+the 12th, Taylor, Zachary
+the 13th, Fillmore, Millard
+the 14th, Pierce, Franklin
+the 15th, Buchanan, James
+the 16th, Lincoln, Abraham
+the 17th, Johnson, Andrew
+the 18th, Grant, Ulysses
+the 19th, Hayes, Rutherford
+the 20th, Garfield, James
+the 21st, Arthur, Chester
+the 22nd, Cleveland, Grover
+the 23rd, Harrison, Benjamin
+the 24th, Cleveland, Grover
+the 25th, McKinley, William
+the 26th, Roosevelt, Theodore
+the 27th, Taft, William Howard
+the 28th, Wilson, Woodrow
+the 29th, Harding, Warren
+the 30th, Coolidge, Calvin
+the 31st, Hoover, Herbert
+the 32nd, Roosevelt, Franklin
+the 33rd, Truman, Harry
+the 34th, Eisenhower, Dwight
+the 35th, Kennedy, John 
+the 36th, Johnson, Lyndon
+the 37th, Nixon, Richard
+the 38th, Ford, Gerald
+the 39th, Carter, Jimmy
+the 40th, Reagan, Ronald
+the 41st, Bush, George
+the 42nd, Clinton, Bill
+the 43rd, Bush, Geroge
+the 44th, Obama, Barack
+the 45th, Trump, Donald
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
