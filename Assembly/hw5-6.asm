@@ -1,4 +1,4 @@
-; multi-segment executable file template.
+; multi-segment executable file template
 ; Nathan Frazier HW 5 - 6  
 
 ; 10h-2 {DH=row}{DL=column}
@@ -45,15 +45,15 @@ start:
 
     lea si, boxes  ; set SI to starting memory address for table 'boxes'
                    ; Label a function that pushes the next 4 values to the stack ( CL, RW, CL, RW )
-                   ; When needed pop these 4 values off the stack before reading in 4 more.
+                   ; When needed pop these 4 values off the stack before reading in 4 more
                    ; They will pop off the stack in the order: BRC BRR ULC ULR
     
     CHECK:
     cmp boxtally, 5
-       je THEEND ; if 5 boxes have been drawn, jump to end. Else...
+       je THEEND ; if 5 boxes have been drawn, jump to end Else
      
     
-    ; 'STACKEM' needs to ALSO prep the memory then immediately go into DRAW label.
+    ; 'STACKEM' needs to ALSO prep the memory then immediately go into DRAW label
     mov cx, 5 
     STACKEM:
        ; first, check if we drew all boxes already
@@ -62,8 +62,8 @@ start:
        inc si
        loop STACKEM
        
-    ; Once the next 4 values are read, make temp copies that will be overwritten every STACKEM.
-    ; AX is 16 bit and BRcol is 8 bit which = error . To sidestep this, AX register for db's is AL. Use AL.
+    ; Once the next 4 values are read, make temp copies that will be overwritten every STACKEM
+    ; AX is 16 bit and BRcol is 8 bit which = error To sidestep this, AX register for db's is AL Use AL
        
        pop ax
        mov ccode, al ; stores color code first since it went in last
@@ -99,8 +99,8 @@ start:
         ; BEGIN RIGHT EDGE DRAW
         REDGE:
         
-        cmp dh, ULrow ; see if cursor has reached upper row value...
-        je  RC         ; if it has, jump out!  Else, continue... 
+        cmp dh, ULrow ; see if cursor has reached upper row value
+        je  RC         ; if it has, jump out!  Else, continue
          
         mov ah, 2   ;set cursor 10h-2
         dec dh ; decrement, cursor will jump up 1 line above the B R corner              
@@ -121,8 +121,8 @@ start:
             int 10h
          
         ; END RIGHT EDGE DRAW, move cursor up one more and place upper right corner ascii then start from bottom left, rinse, repeat
-        ; bottom left edge (row, col) = BRrow, ULcol - since row remains constant for entire bottom...
-        ;CURSOR PREP   
+        ; bottom left edge (row, col) = BRrow, ULcol - since row remains constant for entire bottom
+       ;CURSOR PREP   
         mov ah, 2        ;set cursor 10h-2 
         mov dh, BRrow          
         mov dl, ULcol    
@@ -140,7 +140,7 @@ start:
         LEDGE: 
         
         cmp dh, ULrow ; see if cursor has reached top row
-        je  ELE         ; if it has, jump out!  Else, continue...
+        je  ELE         ; if it has, jump out!  Else, continue
          
         mov ah, 2
         dec dh ; decrement, cursor will jump up 1 above the B L corner              
@@ -177,7 +177,7 @@ start:
         
         cmp dl, BRcol
         je BECP ; jump to bottom edge label if cursor col = rightmost col
-                 ;else....                  
+                 ;else                  
         mov ah, 09h         ; print char, advance cursor horizontally
         mov al, 196
         mov bl, ccode        
@@ -205,7 +205,7 @@ start:
         int 10h 
         
         cmp dl, BRcol ; see if cursor has reached top row
-        je  TALLY     ; BOX SHOULD BE FINISHED!!! exit the loop and add 1 victory to the tally variable.
+        je  TALLY     ; BOX SHOULD BE FINISHED!!! exit the loop and add 1 victory to the tally variable
    
          mov ah, 09h ; write char no attrib 
          mov al, 196
@@ -225,12 +225,12 @@ start:
     jmp CHECK ; go check the tally     
     
     THEEND:
-    ; wait for any key....    
+    ; wait for any key
     mov ah, 1
     int 21h
     
-    mov ax, 4c00h ; exit to operating system.
+    mov ax, 4c00h ; exit to operating system
     int 21h    
 ends
 
-end start ; set entry point and stop the assembler.
+end start ; set entry point and stop the assembler
