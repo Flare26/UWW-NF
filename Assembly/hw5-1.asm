@@ -65,21 +65,20 @@ start:
     int 10h
     
     
-    ;write a character A with a blinking attribute
-    ;   in the middle of the window
-    
-    ; Personal note : FIRST reset the cursor position to appear in the window
-    ; THEN, use command 9 to write a char & attribute at the same time to current cursor position
+    ; The AAAAAAA bug is somewhere in this region.....
     
     mov ah, 02h ; set cursor command #2 
     mov bh, 0h ; DH to desired row (R window row 12h = 18)
+    mov dl, 22h
     int 10h 
     
-    lea dx, char
-    mov ah, 09h ; set write char & attribute command #9 NOTE : NOT ASCII CONTROL CODES
- 
+    
+    mov ah, 09h ; write char & attribute command 10h - 09h NOTE : NOT ASCII CONTROL CODES   
+    mov al, char
+    mov bh, 0
+    mov bl, 10000111b
   
-    int 21h
+    int 10h
     
     ;wait for a key stroke, and then clear entire screen
     ;    with a normal attribute
@@ -88,11 +87,17 @@ start:
     
         ; now clear entire screen
     
-    mov ah, 1
-    int 21h
+    mov ah, 6
+    mov al, 0
+    mov ch, 0
+    mov cl, 0
+    mov dh,24
+    mov dl,79 ; max screen dimensions
+    mov bh, 7 ; normal attrib for blanks
     
-    mov ah, 0
     int 10h
+    
+  
     
     mov ax, 4c00h ; exit to operating system.
     int 21h    
