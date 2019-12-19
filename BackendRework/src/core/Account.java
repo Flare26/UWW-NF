@@ -76,7 +76,7 @@ public class Account implements Serializable {
 		validuser = loginIsValid(username, pass, domain);
 		if ( validuser == false )
 			System.out.println("!! Log-in is invalid. Try again.");
-		if ( validuser == true )
+		if ( validuser == true ) {
 			System.out.println("Log-in success!"); // now cache the user info
 			USERNAME = username;
 			PASSWORD = pass;
@@ -91,6 +91,7 @@ public class Account implements Serializable {
 			// If they answer yes to remember me, serialize the account object
 			if ( x == 'y')
 				serialize();
+		} // END validuser == true
 		}
 	}
 		

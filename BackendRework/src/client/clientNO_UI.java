@@ -79,10 +79,12 @@ public class clientNO_UI {
 		
 		 
 		System.out.printf("»» Parsed %s info:\n" , stuChromebook.getObjectType() );
+		System.out.println("ToString() = "  + stuChromebook.toString());
 		System.out.println("Name: " + stuChromebook.getName());
+		System.out.println("Assignee ID: " + stuChromebook.getUserID());
 		System.out.println("Location_ID: " + stuChromebook.getLocID());
 		System.out.println("Desc: " + stuChromebook.getDesc());
-		System.out.println("Location name:" + locationCb.searchForKey(stuChromebook.getLocID()));
+		System.out.println("Location name: " + locationCb.searchForKey(stuChromebook.getLocID()));
 		
 		System.out.printf("Please enter a new desc for\t%s:\n", stuChromebook.getName());
 		Scanner scan = new Scanner(System.in);
@@ -106,10 +108,12 @@ public class clientNO_UI {
 		// Confirm the update
 		
 		System.out.println("CONFIRM UPDATE?");
+		System.out.println("ToString() = "  + stuChromebook.toString());
 		System.out.println("Name: " + stuChromebook.getName());
-		System.out.println("Location_ID: " + stuChromebook.getLocID());
+		System.out.println("Assignee ID: " + stuChromebook.getUserID());
+		System.out.println("Location_ID: "  + stuChromebook.getLocID());
 		System.out.println("Desc: " + stuChromebook.getDesc());
-		System.out.println("Location name:" + locationCb.searchForKey(stuChromebook.getLocID()));
+		System.out.println("Location name: " + locationCb.searchForKey(stuChromebook.getLocID()));
 		
 		
 		Menu.IH.setYNOnly(true);

@@ -32,5 +32,16 @@ public class Chromebook extends APIObject implements Updatable {
 		runtime_apisession.putThisAsset(request_target, dispid);
 		return 0;
 	}
+	public String getUserID() {
+		String userid = "NO ASSIGNEE";
+		if (! JSON_obj.get("user_id").equals(null)) // it is possible for an asset to have no assigned user
+		{
+			userid = JSON_obj.get("user_id").toString();
+		} else 
+		{
+			userid = "NO ASSIGNEE";
+		}
+		return userid;
+	}
 	
 }

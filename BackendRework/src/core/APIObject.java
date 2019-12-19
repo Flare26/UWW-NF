@@ -13,7 +13,7 @@ public class APIObject {
 	
 	private static objectType type; // not yet working
 	private static String JSON_str;
-	private static JSONObject JSON_obj;
+	protected static JSONObject JSON_obj;
 	private static String apiPath = "NO_API_PATH";
 	private String location_id = "NO_LOCATION_ID";
 	private String name = "NO_NAME";
@@ -104,28 +104,24 @@ public class APIObject {
 		}
 		
 		public String toString() {
-			
-			JSONObject nest = new JSONObject(JSON_str);
-			JSONObject obj = nest.getJSONObject("asset");
-			System.out.println(obj);
-			
 			String name = JSON_obj.getString("name");
 			String displayid = JSON_obj.get("display_id").toString();
 			String atag = JSON_obj.getString("asset_tag");
 			String locationid = JSON_obj.getNumber("location_id").toString();
 			String agentid = JSON_obj.get("agent_id").toString();
-			String userid = JSON_obj.getNumber("user_id").toString();
-			String desc = JSON_obj.get("description").toString();
-			//TEST
-			System.out.println(name);
-			System.out.println(displayid);
-			System.out.println(atag);
-			System.out.println(locationid);
-			System.out.println(agentid);
-			System.out.println(userid);
-			System.out.println("DESC ="+ desc);
+			String desc = JSON_obj.getString("description");
+			String userid;
+			if (! JSON_obj.get("user_id").equals(null)) // it is possible for an asset to have no assigned user
+			{
+				userid = JSON_obj.get("user_id").toString();
+			} else 
+			{
+				userid = "NO ASSIGNEE";
+			}
 			
-			return name + displayid + atag + locationid + agentid + userid ;
+			//TEST
+			
+			return name + displayid + atag + locationid + agentid + userid + desc;
 					
 		}
 
