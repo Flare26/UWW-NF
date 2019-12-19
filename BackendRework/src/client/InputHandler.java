@@ -30,11 +30,12 @@ public class InputHandler {
 			ynAllowed = true;
 	}
 	
-	public char getInput(int choices) {
+	public char getChoice(int choices) {
 		boolean iIsValid;
 		
 		if ( ynOnly == true )
 			System.out.printf("(y/n) : ");
+		console = new Scanner(System.in);
 		String input = console.nextLine();
 		//make sure it is always lowercase
 		input.toLowerCase();
@@ -55,7 +56,7 @@ public class InputHandler {
 				close();
 			iIsValid = inputIsValid (input, choices);
 		}
-		System.out.printf("iIsValid : %s\t---> return %s\n", iIsValid, input.charAt(0));
+		System.out.printf("inputIsValid() : %s\t---> return char %s\n", iIsValid, input.charAt(0));
 		return input.charAt(0);
 	}
 	
@@ -81,7 +82,7 @@ public class InputHandler {
 		}	
 	}
 	
-	public String scannerName() {
+	public String stringInput() {
 	    String name = "DEFAULT";
 	    name = console.nextLine();
 	    name.toLowerCase();

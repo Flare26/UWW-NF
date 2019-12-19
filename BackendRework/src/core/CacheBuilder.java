@@ -16,10 +16,13 @@ import java.net.URL;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
+import java.util.Set;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpHost;
@@ -57,15 +60,25 @@ public class CacheBuilder {
 		
 	}
 	
-	public void buildLocationMap(APISession clientsession) {
+	public void buildLocationMap(APISession staticAPISession) {
 		// use MapBuilder and read in all location pages, store in hash map
-		MapBuilder bob = new MapBuilder(clientsession); // pass api session from client
+		MapBuilder bob = new MapBuilder(staticAPISession); // pass api session from client
 		System.out.println("Building location map...");
 		bob.buildLocationMap(map);
 		
 		cacheMap(map); // cache the location Name , ID map to a tmp file
 		
 		System.out.printf("»» API Locations map built & cached");
+	}
+	
+	public Set<String> searchForKey(Long value) {
+		 Set<String> keys = new HashSet<String>();
+		    for (Entry<String, Long> entry : map.entrySet()) {
+		        if (Objects.equals(value, entry.getValue())) {
+		            keys.add(entry.getKey());
+		        }
+		    }
+		    return keys;
 	}
 	
 	public Map<String, Long> getLocationHashMap(){ 
@@ -102,16 +115,18 @@ public class CacheBuilder {
 	class MapBuilder {
 		boolean endofpages = false;
 		String log_str = "";
-		final APISession apisession;
+		//final APISession apisession;
 		private String username;
 		private String password;
 		final String path;
 	
 		public MapBuilder (APISession clientsession) {
-			apisession = clientsession;
-			username = clientsession.getUsername();
-			password = clientsession.getPassword();
-			path  = apisession.getAPIEndpoint() + "locations"; // johnsburg12.freshservice.com/api/v2/locations
+			System.out.println("MapBuilder bob here!");
+			
+			
+			username = clientsession.getAccountUsername();
+			password = clientsession.getAccountPassword();
+			path  = clientsession.getAccountAPIEndpoint() + "locations"; // johnsburg12.freshservice.com/api/v2/locations
 		}
 		
 		
@@ -131,7 +146,7 @@ public class CacheBuilder {
 					
 					getBuilder.setUri(builder.build()); // sets the get RequestBuilder to first page
 														// /locations?page=1
-					System.out.println("Constructing apiQuery...>" + getBuilder.getUri().toString());
+					System.out.println("Constructing /locations?page=X query...>" + getBuilder.getUri().toString());
 					
 					URL url = new URL(path);
 					final String urlHost = url.getHost();
@@ -154,7 +169,7 @@ public class CacheBuilder {
 					        hccContext.setAuthCache(authCache);
 					        
 					        
-					        System.out.println("Executing /location...");
+					        System.out.println("Executing...");
 					        // Execute:
 					        // WHILE LOOP WILL GRAB EACH PAGE
 					        int pgcount = 1;
@@ -202,7 +217,7 @@ public class CacheBuilder {
 						       pgcount ++;
 					       		} // END FOR OBJ X : ARR
 					        
-					        pg = Integer.toString(pgcount); // increment numeric but store as string
+					        pg = Long.toString(pgcount); // increment numeric but store as string
 				        	
 					        } // END endofpages LOOP
 					        // PAGE STRING BUILT, parse location object
