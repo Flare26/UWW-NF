@@ -2,13 +2,26 @@ package PA2;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
+import java.util.Set;
 
 // Nathan Frazier
 public class AI_PA2_ASTAR {
 // Game plan: adapt code from previous assignment to create a method that take in a file name
 // as a parameter and returns a 2D MATRIX
+	
+	static int gScore; // current optimal path cost from source to given vertex NUMBER MOVES IT TOOK TO GET HERE
+	static int hScore; // heuristic estimate distance from node to goal 
+	static int fScore; // gScore + hScore ( notes get dequed from open set if they have the lowest fScore)
+	
+	static String [] verts1= null;
+	static String [] verts2= null;
+	static int [] heurs1= null;
+	static int [] heurs2= null;
+	static int [] [] adjMatrix1= null;
+	static int [] [] adjMatrix2= null;
 	
     public static void print2D(int mat[][]) 
     { 
@@ -23,15 +36,84 @@ public class AI_PA2_ASTAR {
         }
     }
 
-	private void uniformAStar() {
-		// Asar = USC if heuristics = 0
+    private int findLowestDistance(ArrayList<Integer> myOpenSet, double [] distances, int [] [] matrix) {
+    	//node in openSet with lowest distance
+    	// will have to check the adjacency matrix for each distance. for each node on the open set, find the neighbors and ALSO store their distances.
+    	// starting at source, among the neighbors of source > 0, find the minimum.
+    	int minDist = 0;
+    	for ( int rowIdx : myOpenSet)
+    	{
+    		for ( int colIdx : myOpenSet )
+    		{
+    			int matrixVal = matrix [rowIdx] [colIdx];
+    			if ( matrixVal < minDist && matrixVal > 0 ) {
+    				minDist = matrixVal; // if matrix value is less than current min and is NOT source OR -1
+    			} else if ( minDist == 0 && matrixVal > 0 ) {
+    				minDist = matrixVal; // if min distance has not been set and matrix val is NOT source OR -1
+    			}
+    			
+    		}
+    		
+    		
+    	}
+    	
+    	
+    }
+    
+	private ArrayList<Integer> dijkstras(int sourceIdx, int targetIdx, String [] verts, int [] [] matrix) {
+		
+		ArrayList<Integer> openSet = new ArrayList<Integer> ();
+		//ArrayList<Integer> closedSet = new ArrayList<Integer> ();
+		double [] distances = new double [verts.length]; //Each index 'i' represents the current minimum path cost for node 'i'
+		int [] prev = new int [verts.length]; 
 		
 		
+		//Initially, we don't know the optimal path cost or the parent of any node
+		//To represent a missing node, we'll use -1 as a placeholder
+		//Add all nodes in the graph to the open set
+		for ( int nodeIdx = 0 ; nodeIdx < verts.length ; nodeIdx++ ) {
+			distances [nodeIdx] = Double.POSITIVE_INFINITY; // double just so happens to support positive infinity
+			prev [nodeIdx] = -1;
+			openSet.add(nodeIdx);
+		}
+		
+		// Distance from starting point to starting point will be 0
+		distances[sourceIdx] = 0;
+		
+		// EXPLORE
+		
+		while ( ! openSet.isEmpty() ) {
+			// Check open set for lowest distance among them
+			int current = findLowestDistance(openSet, matrix);
+			
+			
+			
+			
+			
+		}
+		
+		
+		
+		return new ArrayList<Integer> ();
+				
 	}
 	
 	private void AStar() {
 		
 		
+	}
+	
+	private static ArrayList<Integer> getCurrentNeighbors(int currentIndex, int vertexCount, double [] distances, int [] [] adj_matrix) {
+		// Plan: take current index and set it as the row. advance through the columns checking for values > 0.
+		// If a neighbor is found, make note of the index 
+		ArrayList<Integer> neighbors = new ArrayList<Integer> ();
+		for ( int i = 0; i < vertexCount; i++ ) {
+			 if ( adj_matrix [currentIndex] [i] > 0 )
+			 neighbors.add(i); // If a neighbor is found by , make note of it's index
+			 distances[i] = Double.valueOf(adj_matrix[currentIndex].toString());
+		}
+		
+		return neighbors;
 	}
 	
 	
@@ -40,12 +122,6 @@ public class AI_PA2_ASTAR {
 		Populator populator = new Populator();
 		int count1 = -1;
 		int count2 = -1;
-		String [] verts1= null;
-		String [] verts2= null;
-		int [] heurs1= null;
-		int [] heurs2= null;
-		int [] [] adjMatrix1= null;
-		int [] [] adjMatrix2= null;
 		
 		try {
 			verts1 = populator.readVerts("PA2/PA2 Part 1 Names.csv");
