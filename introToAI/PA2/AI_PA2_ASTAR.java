@@ -54,6 +54,8 @@ public class AI_PA2_ASTAR {
     	
     	while ( openSet.isEmpty() == false ) {
     		// use distances array maybe?
+    	
+    		
     		
     	}
     	
