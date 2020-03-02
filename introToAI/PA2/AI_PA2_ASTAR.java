@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Scanner;
 
 // Nathan Frazier
@@ -11,7 +12,7 @@ public class AI_PA2_ASTAR {
 // Game plan: adapt code from previous assignment to create a method that take in a file name
 // as a parameter and returns a 2D MATRIX
 	
-	private static final int INFINITY = 999999999;
+	
 	static int gScore; // current optimal path cost from source to given vertex NUMBER MOVES IT TOOK TO GET HERE
 	static int hScore; // heuristic estimate distance from node to goal 
 	static int fScore; // gScore + hScore ( notes get dequeued from open set if they have the lowest fScore)
@@ -36,11 +37,25 @@ public class AI_PA2_ASTAR {
         }
     }
 
+    private int popLowestOff(ArrayList myOpenSet, double [] fScore ) {
+    	// open set containing ints that represent the index of each vertex in the matrix
+    	int min = Integer.MAX_VALUE;
+    	double minScore = Double.MAX_VALUE;
+    	
+    	for ( int vertexIdx = 0 ; vertexIdx < fScore.length ;  vertexIdx ++ ) {
+    		if ( fScore[vertexIdx] < minScore )
+    			min = vertexIdx;
+    			minScore = fScore[vertexIdx];
+    	}
+    	
+    	return min;
+    }
+    
     private ArrayList<Integer> uniformCostSearch (int source, int target, String [] verts, int [] [] matrix){
 		
     	ArrayList<Integer> openSet = new ArrayList<Integer>();
     	ArrayList<Integer> closedSet = new ArrayList<Integer>();
-    	double [] distances = new double [verts.length];
+    	double [] distances = new double [verts.length]; // also known as fScore
     	int [] prev = new int [verts.length];
     	
     	for (int node = 0 ; node < verts.length ; node++) {
@@ -53,9 +68,29 @@ public class AI_PA2_ASTAR {
     	distances[source] = 0;
     	
     	while ( openSet.isEmpty() == false ) {
-    		// use distances array maybe?
-    	
+    		//on first execution source is only node on here so use that to kick it off
     		
+    		int current = popLowestOff(openSet, distances); // find lowest fscore and remove it
+    		openSet.remove(current);
+    		closedSet.add(current);
+    		
+    		if ( current == target ) {
+    			//We know where each node came from, but not where it goes to
+    			//So if we want a path from the source to the target...
+    			//...We have to go from the target to the source then reverse the path
+
+    			ArrayList<Integer> path = new ArrayList<Integer> ();
+    			while ( current != -1 ) {
+    				path.add(current);
+    				current = prev[current];
+    			}
+    			Collections.reverse(path);
+    			return path;
+    		} // If the end has NOT been found....
+    		
+    		// discover all neighbors
+    		
+    		// add neighbors to open set
     		
     	}
     	
