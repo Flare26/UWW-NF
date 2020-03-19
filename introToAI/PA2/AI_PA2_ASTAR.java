@@ -2,10 +2,7 @@ package PA2;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Scanner;
+import java.util.*;
 
 // Nathan Frazier
 public class AI_PA2_ASTAR {
@@ -19,8 +16,8 @@ public class AI_PA2_ASTAR {
 	
 	static String [] verts1= null;
 	static String [] verts2= null;
-	static int [] heurs1= null;
-	static int [] heurs2= null;
+	static double [] heurs1= null;
+	static double [] heurs2= null;
 	static int [] [] adjMatrix1= null;
 	static int [] [] adjMatrix2= null;
 	
@@ -36,25 +33,11 @@ public class AI_PA2_ASTAR {
             System.out.println();
         }
     }
-
-    private static int popLowestOff(ArrayList<Integer> myOpenSet, double [] fScore ) {
-    	// open set containing ints that represent the index of each vertex in the matrix
-    	int min = Integer.MAX_VALUE;
-    	double minScore = Double.MAX_VALUE;
-    	
-    	for ( int vertexIdx : myOpenSet ) {
-    		if ( fScore[vertexIdx] < minScore )
-    			min = vertexIdx;
-    			minScore = fScore[vertexIdx];
-    	}
-    	
-    	return min;
-    }
     
     private static ArrayList<Integer> uniformCostSearch (int source, int target, String [] verts, int [] [] matrix){
 		
-    	ArrayList<Integer> openSet = new ArrayList<Integer>();
-    	ArrayList<Integer> closedSet = new ArrayList<Integer>();
+    	Queue<Integer> openSet = new LinkedList<Integer>();
+    	Queue<Integer> closedSet = new LinkedList<Integer>();
     	double [] distances = new double [verts.length]; // also known as fScore
     	int [] prev = new int [verts.length];
     	
@@ -69,10 +52,20 @@ public class AI_PA2_ASTAR {
     	
     	while ( openSet.isEmpty() == false ) {
     		//on first execution source is only node on here so use that to kick it off
-    		System.out.println("-----------");
-    		System.out.println("openSet.toString() =  " + openSet.toString());
-    		int current = popLowestOff(openSet, distances); // find lowest fscore and remove it
-    		System.out.println("CURRENT now = " + current );
+    		//System.out.println("-----------");
+    		//System.out.println("openSet.toString() =  " + openSet.toString());
+    		// upon first execution should find source
+    		int current = -1;
+    		double ceil = Double.MAX_VALUE;
+    		
+    		for ( int idx : openSet ) {
+    			if ( distances [ idx ] < ceil ) {
+    				ceil = distances [ idx ];
+    				current = idx;
+    			}	
+    		} // This should garuntee we find lowest
+    		
+    		//System.out.println("CURRENT now = " + current );
     		openSet.remove((Object) current); // remove via index will not work for a dynamic array like this, force object method
     		closedSet.add(current);
     		
@@ -80,74 +73,169 @@ public class AI_PA2_ASTAR {
     			//We know where each node came from, but not where it goes to
     			//So if we want a path from the source to the target...
     			//...We have to go from the target to the source then reverse the path
-    			System.out.println("Current == Target!");
+    			//System.out.println("--- TARGET FOUND, RECONSTRUCTING PATH ---");
+    			double cost = 0;
     			ArrayList<Integer> path = new ArrayList<Integer> ();
     			while ( current != -1 ) {
+    				cost += distances [ current ];
     				path.add(current);
     				current = prev[current];
     			}
+    			
     			Collections.reverse(path);
+    			System.out.println("\nUCS Stats:\ncost = " + cost + "\nfringe size = " + openSet.size() + "\nexplored count = " + closedSet.size() + "\nreturning path...");
     			return path;
     		} // If the end has NOT been found....
     		
     		// discover all neighbors
     		
     		// add neighbors to open set
-    		System.out.println("Finding neighbors of " + current + "...");	
-    		ArrayList<Integer> neighbors = getCurrentNeighbors(openSet, current, verts.length, distances, matrix);
-    		System.out.println("neighbors<Integer>.toString() = " + neighbors);
+    		//System.out.println("Finding neighbors of " + current + "...");	
+    		ArrayList<Integer> neighbors = getCurrentNeighbors(openSet, current, verts.length, matrix);
+    		//System.out.println("neighbors<Integer>.toString() = " + neighbors);
     		// after we have the neighbors, start to logically separate them
     		for ( int neighbor : neighbors ) {
     			
-    				// skip already explored while adding new nodes
-    				//openSet.add(neighbor);
-    			
-    				double edgeWeight = matrix [current] [neighbor];
-    				//This is the current minimum path cost to get from source to current (distances[ current ])...
-    				System.out.println("Edge for Matrix["+current+"] ["+neighbor+"] = " + edgeWeight);
-    				System.out.println("tentativeDistance = "+ distances[current] + " + " + edgeWeight);
-    				double tentativeDistance = distances[ current ] + edgeWeight;
-    				
-    				
-    				if ( tentativeDistance < distances[neighbor] ) {
-    					//Update the distance to the new minimum path cost
-    					distances[ neighbor ] = tentativeDistance;
-
-    					//Update the parent node of neighbor
-    					prev[ neighbor ] = current;
-    				}
-    					// then remove from relative sets
-    					if( closedSet.contains(neighbor)) {
-    						closedSet.remove((Object) neighbor); // again the index is incorrect so just search for the object
+    				if ( closedSet.contains(neighbor) == false ) {
+    					if ( openSet.contains(neighbor) == false )
     						openSet.add(neighbor);
-    					} else if (openSet.contains(neighbor) == false) {
-    						openSet.add(neighbor);
-    					}
-    				}
-    				System.out.println("Explored all neighbors of current!");
-    			}
+    					
+    					
+						double edgeWeight = matrix[current][neighbor];
+						
+						//This is the current minimum path cost to get from source to current (distances[ current ])...
+						//System.out.println("Edge for Matrix[" + current + "] [" + neighbor + "] = " + edgeWeight);
+						//System.out.println("tentativeDistance = " + distances[current] + " + " + edgeWeight);
+						double tentativeDistance = distances[current] + edgeWeight;
+						if (tentativeDistance < distances[neighbor]) {
+							//Update the distance to the new minimum path cost
+							distances[neighbor] = tentativeDistance;
+							prev[neighbor] = current;
+						} // END IF TENTATIVE
+						} // END IF closedSet check
+					} // END FOR NEIGHBOR
+    				
+    				//System.out.println("Explored all neighbors of current!");
+    			}// END MAIN WHILE
     		//If we get to this line then we exhausted all nodes in the open set but never found the target
     		//No path exists
     	System.out.println("Hit outer return null");
     		return null;
     	}
 
-	private void AStar() {
+	private static LinkedList<Integer> AStar(double [] hScore, int [] [] matrix, int sourceIdx, int targetIdx) {
+		int nodeCount = hScore.length;
+		int [] prev = new int[nodeCount];
+		Queue<Integer> openSet = new LinkedList<Integer> ();
+		Queue<Integer> closedSet = new LinkedList<Integer> ();
 		
+		double [] gScore = new double [nodeCount]; // Basically distances array
 		
+		//The 'f' score of each node is g(n) + h(n)
+		//This is the evaluation function unique to A*
+		//Rather than explore the node on the open set with the lowest gScore (Dijkstra's & UCS)...
+		//..A* will explore the node on the open set with the lowest fScore
+		//hScore never changes, but whenever gScore[n] is changed, so must fScore[n]
+		
+		double [] fScore = new double [nodeCount];
+		
+		for ( int nodeIdx = 0 ; nodeIdx < nodeCount ; nodeIdx ++ ) {
+			gScore[nodeIdx] = Double.MAX_VALUE;
+			fScore[nodeIdx] = Double.MAX_VALUE;
+			prev[nodeIdx] = -1;
+		}
+		
+		gScore[ sourceIdx ] = 0 ; // source to source dist is 0, fScore updates too
+		fScore[ sourceIdx ] = gScore[ sourceIdx ] + hScore[ sourceIdx ];
+		
+		// add source to open to kick algorithm off
+		
+		openSet.add(sourceIdx);
+		
+		while ( openSet.isEmpty() == false ) {
+			
+			int currNodeIdx = openSet.remove();
+			// This for loop ensures we have the node with lowest fScore from the set
+			// Exception in thread "main" java.util.ConcurrentModificationException | LINKED LIST MODIFICATION WITHIN LOOP
+			ArrayList<Integer> tempArrayList = new ArrayList<Integer> ();
+			for ( int nodeIdx : openSet ) {
+				tempArrayList.add(nodeIdx);
+			}
+			for ( int nodeIdx : tempArrayList ) {
+				if ( fScore[ nodeIdx ] < fScore[ currNodeIdx ] ) {
+					openSet.add(currNodeIdx);
+					currNodeIdx = nodeIdx;
+				}
+			}
+			// By now we've gotten the node with lowest fScore from open. So, move it to closedSet
+			
+			openSet.remove(currNodeIdx);
+			closedSet.add(currNodeIdx);
+			
+			// once we eventually find the target....
+			
+			if ( currNodeIdx == targetIdx ) {
+				double cost = 0;
+				LinkedList<Integer> path = new LinkedList<Integer>();
+				 // utilize prev pointers array
+				while ( currNodeIdx != -1 ) {
+					cost += fScore[currNodeIdx];
+					path.add(currNodeIdx);
+					currNodeIdx = prev[ currNodeIdx ];
+				}
+				
+				Collections.reverse(( path ));
+				System.out.println("\nASTAR Stats:\nfCost = " + cost + "\nfringe size = " + openSet.size() + "\nexplored count = " + closedSet.size() + "\nreturning path...");
+				return path;
+			} // if we have not found target....
+			else {
+			
+			// Get all current neighbors
+			ArrayList<Integer> neighbors = getCurrentNeighbors(openSet, currNodeIdx, hScore.length, matrix);
+			//En
+			for ( int n : neighbors ) {
+				double edgeWeight = matrix [ currNodeIdx ] [ n ];
+				
+				// Checks the gscore cost to this particular neighbor
+				
+				double tempGScore = gScore [ currNodeIdx ] + edgeWeight;
+				
+				if ( tempGScore < gScore [ n ] ) {
+					gScore [ n ] = tempGScore;
+					// If gScore is changed, so if fScore
+					fScore [ n ] = gScore [ n ] + hScore [ n ];
+					// update parent node to new shorter path
+					prev[ n ] = currNodeIdx;
+					
+					//If we have found a better path to neighbor, then it must be explored again
+					if( closedSet.contains( n ) ){
+						closedSet.remove( n );
+						openSet.add( n );
+					}
+					//If we are seeing this node for the first time, then ensure that it's on the open set
+					else if( openSet.contains( n ) == false )
+						openSet.add( n );
+				}// END IF GSCORE CHECK
+				
+				
+				}	// End FOR NEIGHBOR 
+			
+			} // END ELSE
+		}
+		return null;
 	}
 	
-	private static ArrayList<Integer> getCurrentNeighbors(ArrayList<Integer> myOpenSet, int currentIndex, int vertexCount, double [] distances, int [] [] adj_matrix) {
+	private static ArrayList<Integer> getCurrentNeighbors(Queue<Integer> openSet, int currentIndex, int vertexCount, int [] [] adj_matrix) {
 		// Plan: take current index and set it as the row. advance through the columns checking for values > 0.
 		// If a neighbor is found, make note of the index 
 		ArrayList<Integer> neighbors = new ArrayList<Integer> ();
-		for ( int i = 0; i < vertexCount; i++ ) {
+		for ( int i = 0; i < vertexCount - 1; i++ ) {
 			
-			
+			//System.out.println("Row"+currentIndex+"Col"+i);
 			 if ( adj_matrix [currentIndex] [i] > 0 ) {
-				System.out.println("Matrix["+currentIndex+"] ["+i+"] is a neighbor!");
+				//System.out.println("Matrix["+currentIndex+"] ["+i+"] is a neighbor!");
 			 neighbors.add(i); // If a neighbor is found by , make note of it's index
-			 distances[i] = Double.valueOf(adj_matrix[currentIndex] [i]);
+			 
 			 }
 		}
 		return neighbors;
@@ -189,10 +277,12 @@ public class AI_PA2_ASTAR {
 		System.out.println("---ADJ2---");
 		print2D(adjMatrix2);
 		// END Initialize
-		
-		System.out.println(uniformCostSearch(0,6,verts1,adjMatrix1));
-		
-		
+		// double [] hScore, int [] [] matrix, int sourceIdx, int targetIdx
+		System.out.println("UCS 1 Results: \n" + uniformCostSearch(0,6,verts1,adjMatrix1));
+		System.out.println("UCS 2 Results: \n" + uniformCostSearch(0,6,verts2,adjMatrix1));
+		System.out.println("ASTAR 1 Results: \n" + AStar(heurs1, adjMatrix1, 0,6) );
+		System.out.println("ASTAR 2 Results: \n" + AStar(heurs2, adjMatrix2, 0,6) );
+		System.out.println("Pathfinding completed");
 	}
 
 	
@@ -209,8 +299,8 @@ class Populator {
 		return str.split(",");
 	}
 	
-	public int [] readHeurs(String heuristicFilename, int vertexCount) throws FileNotFoundException {
-		int [] heuristics = new int [vertexCount]; 
+	public double [] readHeurs(String heuristicFilename, int vertexCount) throws FileNotFoundException {
+		double [] heuristics = new double [vertexCount]; 
 		Scanner scan = new Scanner(new File(heuristicFilename));
 		String line = scan.nextLine();
 		String [] vals = line.split(",");
@@ -219,6 +309,7 @@ class Populator {
 			heuristics [i] = Integer.valueOf(val);
 			i++;
 		}
+		scan.close();
 		return heuristics;
 	}
 	
