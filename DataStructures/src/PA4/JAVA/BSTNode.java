@@ -1,6 +1,6 @@
 
 
-
+// Nathan Frazier
 public class BSTNode {
 
 	int value, height, subtreeSize;

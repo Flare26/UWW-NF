@@ -1,7 +1,9 @@
 
-
+// Nathan Frazier
 public class BST {
 
+	// Binary search tree will store root and 
+	
 	protected BSTNode root;
 	protected int size;
 
@@ -10,10 +12,68 @@ public class BST {
 		size = 0;
 	}
 
-	public BSTNode search(int key) { // complete this method
+	public BSTNode search( int key ) { // complete this method
+		// If current node > key , move to left child
+		// If current node < key , move to right child
+		BSTNode current = root; // Always start from top
+		
+		while ( current != null ) {
+			
+			if (current.value == key)
+				return current;
+			else if ( current.value > key)
+				current = current.left;
+			else current = current.right;
+			
+		}
+		
+		return current;
+		
 	}
 
 	private BSTNode insert(int val) { // complete this method
+		
+		if ( size == 0 ) {
+			root = new BSTNode ( val );
+			size++;
+			return root;
+			
+		} else {
+			
+		BSTNode currentNode = root; // start from root node
+		BSTNode newNode = new BSTNode (val);
+		while (true) {
+		if ( currentNode.value == val ) {
+			//terminate, do not try to insert a duplicate value
+			return currentNode;
+		} else {
+			if ( newNode.value < currentNode.value ) {
+				if ( currentNode.hasLeftChild() == false ) {
+					// If curent is smaller than new val, check if there's already a left child or not. if not insert there. if so, move down left.
+					currentNode.left = newNode;
+					newNode.parent = currentNode;
+					size++;
+					return newNode;
+				} else {
+					currentNode = currentNode.left;
+				}
+			}
+			
+			if ( newNode.value > currentNode.value ) {
+				if ( currentNode.hasRightChild() == false ) {
+					// If curent is larger than new val, check if there's already a right child or not. if not insert there. if so, move down right.
+					currentNode.right = newNode;
+					newNode.parent = currentNode;
+					size++;
+					return newNode;
+				} else {
+					currentNode = currentNode.right;
+				}
+			}
+		}
+		}
+		
+		}
 	}
 
 	public boolean remove(int val) {
