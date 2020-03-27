@@ -1,5 +1,5 @@
 public class RotatedBinarySearch {
-
+//Nathan Frazier
 	public static int search(int array[], int length, int key) { // complete this function
 	}
 
