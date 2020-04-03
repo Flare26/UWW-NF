@@ -2,10 +2,11 @@ public class RotatedBinarySearch {
 //Nathan Frazier
 	public static int search(int array[], int length, int key) { // complete this function
 		// use binary search to find index where the shift point is located
-		int solution = -1;
 		int maxIdx = maxIndex(array , array[length-1] , 0 , length - 1);
 		int left = 0;
 		int right = length - 1 ;
+		
+		while ( left < right ) {
 			int midpoint = left + ( right - left ) / 2;
 			// If the middle of L & R is greater than the rightmost bound, restrict bounds to one greater than it. 
 			// Tells us which side of the array will potentially contain our key
@@ -13,9 +14,29 @@ public class RotatedBinarySearch {
 				left = midpoint + 1; // middle element is for sure NOT the smallest
 			else
 				right = midpoint; // if array[mid] < array [right] then from right -> mid is sorted as expected so set right
+		}
+			// now we know where lowest val really is, start actual search on relevant side
+			int entry = left;
+			left = 0;
+			right = length - 1;
 			
-			return binarySearch ( array , maxIdx + 1, length - 1, key);
-					
+			
+			if (key >= array[entry] && key <= array[right]) {
+				left = entry;
+			} else {
+				right = entry;
+			}
+			
+			while ( left <= right ) {
+				int midpoint = left + (right - left) / 2;
+				if (array[midpoint] == key)
+					return midpoint;
+				else if ( array[midpoint] < key)
+					left = midpoint + 1;
+				else
+					right = midpoint - 1;
+			}
+					return -1;
 	}
 
 	private static int maxIndex(int array[], int lastValue, int left, int right) { // complete this function

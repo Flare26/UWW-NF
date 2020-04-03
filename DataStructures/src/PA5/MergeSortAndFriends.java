@@ -61,22 +61,32 @@ public class MergeSortAndFriends {
 	}
 
 	public static int[] kWayMerge(int lists[][], int listLengths[], int k) { // complete this function
-		// Jagged arrays =  number of columns vary over each row
 		int newK = (k+1)/2; // New num of sorted lists after merging
-		int [] [] mergedLists = new int [newK] [k];
+		//ArrayList<int []>  mergedList = new ArrayList<int[]> (newK);
+		int [] [] merged = new int [newK] [] ;
 		int [] mergedListLengths = new int [newK];
-		 for ( int i = 0 ; i <= (k/2) - 1 ; i ++) {
-			 mergedListLengths[i] = listLengths[2*i] + listLengths[2*i + 1];
-			 mergedLists[i] = binaryMerge(lists[2*i], lists[2*i+1] , lists.length, lists.length);
-		 }
 		
-		 if ( k % 2 == 1) {
-			 mergedLists[newK - 1] = lists[k-1];
+		// if a single row was passed into this function via recursion...
+		if ( k == 1 )
+			return lists[0];
+		// if we are left with exactly 2 left...
+		if ( k == 2 )
+			return binaryMerge(lists[0] , lists[1] , listLengths[0] , listLengths[1] );
+
+	
+		for ( int i = 0 ; i <= (k - 1) /2 - 1 ; i++) {
+			mergedListLengths[i] = listLengths[2*i] + listLengths[2*i+1];
+			merged[i] = binaryMerge(lists[2*i] , lists[2*i + 1], listLengths[2*i], listLengths[2*i + 1] ); // create new array relative to the length of new merged list
+		}
+		
+		 if ( k % 2 != 0 ) {
+			 //mergedList.set(newK - 1, lists[ k - 1 ]);
+			 merged[newK - 1] = lists[k-1];
 			 mergedListLengths[newK - 1] = listLengths[k - 1];
 			 // If k is odd then last row does not have a pair to be merged so it gets copied to mergedLists[newK - 1]
-		 }
-		 
-		 return kWayMerge(mergedLists, mergedListLengths, newK);
+		 } 
+		
+		 return kWayMerge(merged, mergedListLengths, newK);
 	}
 
 	public static void mergesort(int[] array, int left, int right) {
