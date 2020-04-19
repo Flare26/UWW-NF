@@ -1,0 +1,80 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf600
+{\fonttbl\f0\fnil\fcharset0 Monaco;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs22 \cf0 *** Test BFS on UnweightedGraph 1 ***\
+\
+Level array (from v0):   [0, 1, 2, 1, 1, 2, 2]\
+Level array (from v1):   [1, 0, 1, 1, 2, 3, 2]\
+Level array (from v2):   [2, 1, 0, 1, 3, 3, 2]\
+Level array (from v3):   [1, 1, 1, 0, 2, 2, 1]\
+Level array (from v4):   [1, 2, 3, 2, 0, 1, 2]\
+Level array (from v5):   [2, 3, 3, 2, 1, 0, 1]\
+Level array (from v6):   [2, 2, 2, 1, 2, 1, 0]\
+\
+*** Test BFS on UnweightedGraph 2 ***\
+\
+Level array (from v0):   [0, 1, 2, 1, infty, 2, infty]\
+Level array (from v1):   [1, 0, 1, 1, infty, 2, infty]\
+Level array (from v2):   [2, 1, 0, 1, infty, 2, infty]\
+Level array (from v3):   [1, 1, 1, 0, infty, 1, infty]\
+Level array (from v4):   [1, 2, 3, 2, 0, 1, 1]\
+Level array (from v5):   [2, 2, 2, 1, infty, 0, infty]\
+Level array (from v6):   [2, 3, 4, 3, 1, 2, 0]\
+\
+*** Test DFS on UnweightedGraph 1 ***\
+\
+Level array (from v0):   [0, 1, 2, 3, 6, 5, 4]\
+Level array (from v1):   [1, 0, 3, 2, 5, 4, 3]\
+Level array (from v2):   [2, 1, 0, 3, 6, 5, 4]\
+Level array (from v3):   [1, 2, 3, 0, 2, 3, 4]\
+Level array (from v4):   [1, 2, 3, 4, 0, 6, 5]\
+Level array (from v5):   [2, 3, 4, 5, 1, 0, 6]\
+Level array (from v6):   [2, 3, 4, 1, 3, 4, 0]\
+\
+*** Test DFS on UnweightedGraph 2 ***\
+\
+Level array (from v0):   [0, 1, 2, 3, infty, 4, infty]\
+Level array (from v1):   [1, 0, 3, 2, infty, 3, infty]\
+Level array (from v2):   [2, 1, 0, 3, infty, 4, infty]\
+Level array (from v3):   [1, 2, 3, 0, infty, 1, infty]\
+Level array (from v4):   [1, 2, 3, 4, 0, 5, 1]\
+Level array (from v5):   [2, 3, 4, 1, infty, 0, infty]\
+Level array (from v6):   [2, 3, 4, 5, 1, 6, 0]\
+\
+*** Test Longest Path on DAG 1 ***\
+\
+Topological Order: [0, 2, 1]\
+Longest Path Array (from v0): [0, 5, -infty]\
+Longest Path Array (from v1): [-infty, 0, -infty]\
+Longest Path Array (from v2): [-infty, -5, 0]\
+\
+*** Test Longest Path on DAG 2 ***\
+\
+Topological Order: [0, 7, 1, 2, 3, 5, 6, 4]\
+Longest Path Array (from v0): [0, 4, 6, 16, 18, 19, 20, -infty]\
+Longest Path Array (from v1): [-infty, 0, 2, 12, 14, 15, 16, -infty]\
+Longest Path Array (from v2): [-infty, -infty, 0, 10, 12, 13, 14, -infty]\
+Longest Path Array (from v3): [-infty, -infty, -infty, 0, -4, 3, 4, -infty]\
+Longest Path Array (from v4): [-infty, -infty, -infty, -infty, 0, -infty, -infty, -infty]\
+Longest Path Array (from v5): [-infty, -infty, -infty, -infty, -7, 0, -5, -infty]\
+Longest Path Array (from v6): [-infty, -infty, -infty, -infty, -10, -infty, 0, -infty]\
+Longest Path Array (from v7): [-infty, -infty, -infty, -infty, 2, -infty, 12, 0]\
+\
+*** Test Mutant Language 1 ***\
+\
+Alphabet order: [b, a, c, e, d]\
+\
+*** Test Mutant Language 2 ***\
+\
+Unfortunately, this language has circular dependency.\
+\
+*** Test Mutant Language 3 ***\
+\
+Alphabet order: [b, d, a, f, c, g, e]\
+\
+}
