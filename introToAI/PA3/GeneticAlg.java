@@ -1,10 +1,12 @@
+package PA3;
+
 //Nathan Frazier
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Random;
 public class GeneticAlg {
 	
-	public static String keyword = "oreos"; // Idea genotype
+	public static String keyword = "WEEDS"; // Idea genotype
 	static int keywordscore = 0;
 	
 	static int MAX_GENERATIONS = 42000;
@@ -13,7 +15,7 @@ public class GeneticAlg {
 	static int GENOTYPE_SIZE = keyword.length();
 	static double FIT_THRESHOLD = GENOTYPE_SIZE; // cease search
 	static int PARENT_COUNT = 2;
-	static double MUT_RATE = 0.05; // 0 - 1 that a single gene is random ( for guessing a string, each character is a gene ) %
+	static double MUT_RATE = 0.10; // 0 - 1 that a single gene is random ( for guessing a string, each character is a gene ) %
 	
 	 
 	
