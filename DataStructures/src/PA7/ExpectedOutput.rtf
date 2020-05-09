@@ -1,0 +1,73 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf600
+{\fonttbl\f0\fnil\fcharset0 Monaco;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs22 \cf0 *** Test Trie (Spell Checker) ***\
+\
+Dictionary: [abc$, abcd$, bce$, abx$, acfe$, bfr$, de$]\
+Document:   [abc, def, abcd, bce, abx, acfe, bfr, xyz, de, tyu, ab]\
+\
+Incorrect spellings: def xyz tyu ab \
+\
+*** Test Dijkstra (dijkstra1.txt) ***\
+\
+Distance array (from v0): [0, 10, 10, 3, 5, infty, 10]\
+Parent array (from v0):   [-1, 0, 1, 0, 3, -1, 3]\
+\
+Distance array (from v1): [17, 0, 0, 5, 7, infty, 12]\
+Parent array (from v1):   [2, -1, 1, 1, 3, -1, 3]\
+\
+Distance array (from v2): [17, 27, 0, 20, 22, infty, 27]\
+Parent array (from v2):   [2, 0, -1, 0, 3, -1, 3]\
+\
+Distance array (from v3): [34, 44, 17, 0, 2, infty, 7]\
+Parent array (from v3):   [2, 0, 3, -1, 3, -1, 3]\
+\
+Distance array (from v4): [infty, infty, infty, infty, 0, infty, infty]\
+Parent array (from v4):   [-1, -1, -1, -1, -1, -1, -1]\
+\
+Distance array (from v5): [infty, infty, infty, infty, 3, 0, 2]\
+Parent array (from v5):   [-1, -1, -1, -1, 5, -1, 5]\
+\
+Distance array (from v6): [infty, infty, infty, infty, infty, infty, 0]\
+Parent array (from v6):   [-1, -1, -1, -1, -1, -1, -1]\
+\
+*** Test Dijkstra (dijkstra2.txt) ***\
+\
+Distance array (from v0): [0, 10, 10, 12, 1, 8, 19]\
+Parent array (from v0):   [-1, 0, 1, 2, 0, 4, 3]\
+\
+Distance array (from v1): [5, 0, 0, 2, 6, 11, 9]\
+Parent array (from v1):   [3, -1, 1, 2, 0, 6, 3]\
+\
+Distance array (from v2): [5, 15, 0, 2, 6, 11, 9]\
+Parent array (from v2):   [3, 0, -1, 2, 0, 6, 3]\
+\
+Distance array (from v3): [3, 13, 13, 0, 4, 9, 7]\
+Parent array (from v3):   [3, 0, 1, -1, 0, 6, 3]\
+\
+Distance array (from v4): [infty, infty, infty, infty, 0, 7, infty]\
+Parent array (from v4):   [-1, -1, -1, -1, -1, 4, -1]\
+\
+Distance array (from v5): [infty, infty, infty, infty, infty, 0, infty]\
+Parent array (from v5):   [-1, -1, -1, -1, -1, -1, -1]\
+\
+Distance array (from v6): [infty, infty, infty, infty, infty, 2, 0]\
+Parent array (from v6):   [-1, -1, -1, -1, -1, 6, -1]\
+\
+*** Test Heap Sort ***\
+\
+Before Sorting: [abc, def, abcd, bce, abx, acfe, bfr, xyz, de, tyu, ab, abcd, xy, zxy, abx, def]\
+After Sorting:  [ab, abc, abcd, abcd, abx, abx, acfe, bce, bfr, de, def, def, tyu, xy, xyz, zxy]\
+\
+*** Test Top-k ***\
+\
+Original Array:     [xyz, wrtu, z, pqr, b, abx, def, fgh, fgh]\
+Highest 3 elements: [wrtu, xyz, z]\
+Highest 6 elements: [fgh, fgh, pqr, wrtu, xyz, z]\
+Highest 9 elements: [abx, b, def, fgh, fgh, pqr, wrtu, xyz, z]\
+}
