@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4901136735604236130
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4901136735604236128}
+  - component: {fileID: 4901136735604236129}
+  - component: {fileID: 4901136735604236143}
+  m_Layer: 0
+  m_Name: GoalsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4901136735604236128
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4901136735604236130}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 73.9942, y: 3.0102596, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4901136735604236129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4901136735604236130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9cfba8dc193f435e8f24c88a4f5707a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DeathGoal: 3
+  EnemyDeathCount: 0
+  playSound: 1
+  sound: {fileID: 8300000, guid: 16b46e7047a6048058c0d23ec23fc8b3, type: 3}
+  volume: 1
+  changeScene: 0
+  sceneChangeDelay: 2.1
+  sceneName: Scene Example
+  enableAnObject: 0
+  TargetObject: {fileID: 0}
+  DisableAtStart: 0
+  completed: 0
+--- !u!114 &4901136735604236143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4901136735604236130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abbb92e419394436b812d999758bf8c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GoalObject: {fileID: 0}
+  Goals:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 4901136735604236129}
+  goalsCompleted: 0
+  playSound: 1
+  sound: {fileID: 8300000, guid: 22acda883465d4d0a805b99613e8d67d, type: 3}
+  volume: 1
+  changeScene: 1
+  sceneChangeDelay: 2.09
+  sceneName: MovementPlayground
+  enableAnObject: 1
+  TargetObject: {fileID: 0}
+  DisableAtStart: 1
+  completed: 0
