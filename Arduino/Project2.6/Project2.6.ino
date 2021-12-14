@@ -1,6 +1,6 @@
  
 #include <Adafruit_CircuitPlayground.h>
-//#include <Adafruit_Circuit_Playground.h>
+#include <Adafruit_Circuit_Playground.h>
 #include "MIDIUSB.h"
 #include <USB-MIDI.h>
 /*
@@ -291,8 +291,6 @@ void playNote(int noteint, int ms, bool blocking)
 void updateTouches()
 {
 
-  for (int i = 0; i < 7; i++)
-  {
     int kick_midi_value = 60; // c4
     int snare_midi_value = 62;
     int hat_midi_value = 64;
@@ -301,6 +299,10 @@ void updateTouches()
     int snarecp = CircuitPlayground.readCap(2, 100);
     int hatcp = CircuitPlayground.readCap(3, 10);
     int tomcp = CircuitPlayground.readCap(6, 10);
+
+
+  for (int i = 0; i < 7; i++)
+  {
 
     if (snarecp > 1000)
       Serial.println(CircuitPlayground.readCap(2, 10));
@@ -474,6 +476,7 @@ void updateLights(int h, int noteint)
 }
 void showMode()
 {
+  Serial.println("show mode");
    int n; // note
   // First parameter is the event type (0x0B = control change).
   // Second parameter is the event type, combined with the channel.
