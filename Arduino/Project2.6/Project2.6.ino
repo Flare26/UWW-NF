@@ -536,7 +536,7 @@ void showMode()
 
 void midiSendMode()
 {
-  Serial.println("MIDI send mode");
+  //Serial.println("MIDI send mode");
   updateLights(-1, -1);
   updateTouches();
 }
