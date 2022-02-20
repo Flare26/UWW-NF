@@ -11,14 +11,39 @@ public class PlatformerMovement : MonoBehaviour, IMove
     IAttack<Health>[] attackScrpits;
 
     public float moveSpeed = 10f;
+    JumpMotor jm;
 
-
+    [SerializeField] AudioClip[] fs_stone;
+    [SerializeField] AudioClip[] fs_wood;
+    AudioSource fsrc; // source of the footsteps
     void Start(){
         attackScrpits = GetComponents<IAttack<Health>>();
         rb = GetComponent<Rigidbody2D>();
+        fsrc = GetComponent<AudioSource>();
+        jm = GetComponent<JumpMotor>();
     }
 
-
+    public void Step()
+    {
+        if (jm.CheckGround())
+        {
+            AudioClip[] matSet;
+            switch (jm.standingOn)
+            {
+                case JumpMotor.GroundMat.Wood:
+                    matSet = fs_wood;
+                    break;
+                case JumpMotor.GroundMat.Stone:
+                    matSet = fs_stone;
+                    break;
+                default:
+                    matSet = fs_stone;
+                    break;
+            }
+            AudioClip s = matSet[Random.Range(0, matSet.Length)];
+            fsrc.PlayOneShot(s);
+        }
+    }
     public void Move(Vector2 direction)
     {
         if (Mathf.Abs(direction.x) > .01f)

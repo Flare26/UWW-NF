@@ -8,6 +8,8 @@ TagManager:
   - lever
   - Enemy
   - CheckPoint
+  - Wood
+  - Stone
   layers:
   - Default
   - TransparentFX

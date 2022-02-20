@@ -45,7 +45,7 @@ PrefabInstance:
     - target: {fileID: 3986381549110541580, guid: f71a64c0438fc42769f7448216469870,
         type: 3}
       propertyPath: m_Name
-      value: Space Bush
+      value: LockedBUsh
       objectReference: {fileID: 0}
     - target: {fileID: 3986381549110541580, guid: f71a64c0438fc42769f7448216469870,
         type: 3}

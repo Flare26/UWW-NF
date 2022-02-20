@@ -53,10 +53,11 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -155,6 +156,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animators: []
   moveSpeed: 3
+  fs_stone: []
+  fs_wood: []
 --- !u!114 &5553773754682142629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,6 +173,10 @@ MonoBehaviour:
   jumpHeight: 2
   upGravityScale: 2
   downGravityScale: 3
+  jumpSound: {fileID: 0}
+  soundVolume: 1
+  numberOfJumps: 1
+  secondaryJumpHeightMultiplier: 0.5
   leftDetectorPoint: {fileID: 5431266911867123955}
   rightDetectorPoint: {fileID: 1597326521047089556}
   groundDetectionDistance: 0.5
@@ -177,6 +184,7 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 4294967295
+  standingOn: 0
 --- !u!1 &5199686094021039366
 GameObject:
   m_ObjectHideFlags: 0

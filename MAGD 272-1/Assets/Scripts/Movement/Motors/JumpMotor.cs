@@ -39,8 +39,12 @@ public class JumpMotor : MonoBehaviour, IJump
 
     [Tooltip("I will try to run and jump on anything in these layers as if it was ground")]
     [SerializeField] LayerMask whatIsGround;
-
+    [SerializeField] public GroundMat standingOn;
     
+    public enum GroundMat
+    {
+        Unknown, Wood, Stone
+    }
 
     int jumpCount = 0;
 
@@ -94,9 +98,15 @@ public class JumpMotor : MonoBehaviour, IJump
     void UpdateGravityScale() {
         if (rb.velocity.y < -.01f){
             rb.gravityScale = downGravityScale;
+
         }
         else {
             rb.gravityScale = upGravityScale;
+        }
+
+        if (rb.velocity.y < -20)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, -20);
         }
     }
 
@@ -113,6 +123,19 @@ public class JumpMotor : MonoBehaviour, IJump
         if (hitLeft.collider || hitRight.collider)
         {
             //Debug.Log(hitLeft.collider + " " + hitRight.collider);
+            string str = hitLeft.collider.tag.ToString();
+            switch (str)
+            {
+                case "Wood":
+                    standingOn = GroundMat.Wood;
+                    break;
+                case "Stone":
+                    standingOn = GroundMat.Stone;
+                    break;
+                default:
+                    standingOn = GroundMat.Unknown;
+                    break;
+            }
             return true;
         }
         else {

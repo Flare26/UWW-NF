@@ -92,10 +92,11 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -114,7 +115,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1496570463
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 4337508272808519184, guid: 2297df1df278743c4969a85a01ca1add,
     type: 3}
@@ -195,6 +196,7 @@ MonoBehaviour:
   sound: {fileID: 8300000, guid: 9e6356d97dab6410c92f593426cd394e, type: 3}
   soundVolume: 0.4
   healthUI: {fileID: 0}
+  startsFullHealth: 1
 --- !u!114 &9007749945334556024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -226,7 +228,7 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 1}
+    pivot: {x: 0.49760395, y: 0.47391}
     oldSize: {x: 1.12, y: 0.72}
     newSize: {x: 1.12, y: 0.72}
     adaptiveTilingThreshold: 0.5
@@ -326,12 +328,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doIFlip: 0
   facingRight: 0
-  idle: {fileID: 7400000, guid: 0df899ea5c58e40759d75fa2b081efe0, type: 2}
+  idle: {fileID: 0}
   moveSide: {fileID: 0}
   moveUp: {fileID: 0}
   moveDown: {fileID: 0}
   attack: {fileID: 0}
-  death: {fileID: 7400000, guid: 3e4773e43a0ec4376a30f2cfca44d8ee, type: 2}
+  death: {fileID: 0}
   action1: {fileID: 0}
   action2: {fileID: 0}
   action3: {fileID: 0}

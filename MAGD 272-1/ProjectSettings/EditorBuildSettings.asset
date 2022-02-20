@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Adventure Time/ATL2.unity
     guid: f045d8b92219ad846b35295103bcdd6b
+  - enabled: 1
+    path: Assets/Scenes/Adventure Time/BonusLevel.unity
+    guid: fdf5204587433b4458cd64bad698bba6
   - enabled: 0
     path: Assets/Examples/MovementPlayground.unity
     guid: d3e3428c46244e54e9a66c42e6acfd5e

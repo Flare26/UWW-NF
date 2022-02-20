@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <LangVersion>8.0</LangVersion>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -26,7 +26,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
-    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -35,7 +35,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
-    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup>
     <NoConfig>true</NoConfig>
@@ -52,9 +52,6 @@
     <UnityBuildTarget>WebGL:20</UnityBuildTarget>
     <UnityVersion>2020.3.15f2</UnityVersion>
   </PropertyGroup>
-  <ItemGroup>
-    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
-  </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Attacks\Attack Managers\PlayerAttackManager.cs" />
     <Compile Include="Assets\OtherResources\Interfaces\IInteractable.cs" />
@@ -146,6 +143,16 @@
     <Compile Include="Assets\Scripts\Attacks\Shoots\ShootTwoDirectionPlatformer.cs" />
     <Compile Include="Assets\Scripts\Attacks\Shoots\ShootTwoDirection_Platformer_OneProjectile.cs" />
     <Compile Include="Assets\Scripts\Movement\Chasers\PlatformChaser.cs" />
+    <Compile Include="Assets\deathActivate.cs" />
+    <Compile Include="Assets\VLights\Scripts\Demo\MouseOrbitDemo.cs" />
+    <Compile Include="Assets\VLights\Scripts\Util\VLightGeometryUtil.cs" />
+    <Compile Include="Assets\VLights\Scripts\VLight\VLightHelper.cs" />
+    <Compile Include="Assets\VLights\Scripts\Util\ShaderLibrary.cs" />
+    <Compile Include="Assets\VLights\Scripts\VLight\VLightManager.cs" />
+    <Compile Include="Assets\VLights\Scripts\VLight\VLight.cs" />
+    <Compile Include="Assets\VLights\Scripts\PostProcess\VLightInterleavedSampling.cs" />
+    <Compile Include="Assets\VLights\Scripts\Util\GenerateNoiseTexture.cs" />
+    <Compile Include="Assets\VLights\Scripts\Util\VLightShaderUtil.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
@@ -155,6 +162,7 @@
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\_PoiyomiShaders\Shaders\Pro\Includes\CGI_Poicludes.cginc" />
     <None Include="Assets\_PoiyomiShaders\Shaders\Pro\Includes\CGI_PoiPanosphere.cginc" />
+    <None Include="Assets\VLights\Shaders\Light\Legacy\VolumeLightArea.shader" />
     <None Include="Assets\_PoiyomiShaders\Shaders\Pro\Includes\CGI_PoiGrab.cginc" />
     <None Include="Assets\_PoiyomiShaders\Scripts\poi-tools\Resources\Poi\PoiTexturePacker.shader" />
     <None Include="Assets\_PoiyomiShaders\Shaders\Pro\Shaders\S_Poiyomi_Toon.shader" />
@@ -165,6 +173,7 @@
     <None Include="Assets\_PoiyomiShaders\Shaders\Pro\Includes\CGI_PoiIridescence.cginc" />
     <None Include="Assets\Fonts\Orbitron\OFL.txt" />
     <None Include="Assets\_PoiyomiShaders\Shaders\Pro\Includes\CGI_PoiSpawnInVert.cginc" />
+    <None Include="Assets\VLights\Shaders\Light\VLightHelperArea.cginc" />
     <None Include="Assets\Fonts\Montserrat_Subrayada\OFL.txt" />
     <None Include="Assets\Sprites\Seasonal Tilesets\LICENSE.txt" />
     <None Include="Assets\_PoiyomiShaders\Scripts\poi-tools\Resources\Poi\PoiTextureUnpacker.shader" />
@@ -179,10 +188,13 @@
     <None Include="Assets\_PoiyomiShaders\Shaders\Pro\Includes\CGI_PoiDepthColor.cginc" />
     <None Include="Assets\_PoiyomiShaders\Shaders\Pro\Includes\CGI_PoiClearCoat.cginc" />
     <None Include="Assets\_PoiyomiShaders\Shaders\Pro\Includes\CGI_PoiBRDF.cginc" />
+    <None Include="Assets\VLights\Readme.txt" />
     <None Include="Assets\_PoiyomiShaders\Shaders\Pro\Includes\CGI_PoiWireframe.cginc" />
     <None Include="Assets\_PoiyomiShaders\Shaders\Pro\Includes\CGI_PoiShadowVert.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\_PoiyomiShaders\Shaders\Pro\Includes\CGI_PoiGlitter.cginc" />
+    <None Include="Assets\VLights\Shaders\Light\Legacy\VolumeLightOrthographic.shader" />
+    <None Include="Assets\VLights\Shaders\Common\RenderDepth.shader" />
     <None Include="Assets\_PoiyomiShaders\Shaders\Pro\Includes\CGI_PoiPathing.cginc" />
     <None Include="Assets\_PoiyomiShaders\Shaders\Pro\Includes\CGI_PoiDecal.cginc" />
     <None Include="Assets\_PoiyomiShaders\Shaders\Pro\Includes\CGI_PoiRandom.cginc" />
@@ -194,9 +206,11 @@
     <None Include="Assets\_PoiyomiShaders\Shaders\Pro\Includes\CGI_PoiUVDistortion.cginc" />
     <None Include="Assets\_PoiyomiShaders\Shaders\Pro\Includes\CGI_PoiDissolve.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
+    <None Include="Assets\VLights\Shaders\PostProcess\Blur.shader" />
     <None Include="Assets\_PoiyomiShaders\Shaders\Pro\Includes\CGI_PoiShadowIncludes.cginc" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\_PoiyomiShaders\Shaders\Pro\Includes\CGI_PoiMath.cginc" />
+    <None Include="Assets\VLights\Shaders\Light\VLightHelper.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF.shader" />
     <None Include="Assets\_PoiyomiShaders\Shaders\Pro\Includes\CGI_PoiRimLighting.cginc" />
@@ -205,7 +219,10 @@
     <None Include="Assets\_PoiyomiShaders\Shaders\Pro\Includes\CGI_PoiMSDF.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\_PoiyomiShaders\Shaders\Pro\Includes\CGI_PoiBlackLight.cginc" />
+    <None Include="Assets\VLights\Shaders\PostProcess\VolumeLightInterleavedComposite.shader" />
+    <None Include="Assets\VLights\Shaders\PostProcess\SimpleComposite.shader" />
     <None Include="Assets\_PoiyomiShaders\Shaders\Pro\Includes\CGI_PoiSpawnInFrag.cginc" />
+    <None Include="Assets\VLights\Shaders\Light\VLightHelperOrthographic.cginc" />
     <None Include="Assets\_PoiyomiShaders\Shaders\Pro\Includes\CGI_PoiAlphaToCoverage.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\_PoiyomiShaders\Shaders\Pro\Shaders\7PlusLabels.txt" />
@@ -213,6 +230,7 @@
     <None Include="Assets\Fonts\Bangers\OFL.txt" />
     <None Include="Assets\_PoiyomiShaders\Shaders\Pro\Includes\CGI_PoiRGBMask.cginc" />
     <None Include="Assets\_PoiyomiShaders\Shaders\Pro\Includes\CGI_PoiMirror.cginc" />
+    <None Include="Assets\VLights\Shaders\Light\Legacy\VolumeLight.shader" />
     <None Include="Assets\_PoiyomiShaders\Scripts\ThryEditor\Examples\Example1.shader" />
     <None Include="Assets\Fonts\MuseoModerno\OFL.txt" />
     <None Include="Assets\Fonts\Flavors\OFL.txt" />
@@ -223,12 +241,15 @@
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\_PoiyomiShaders\Scripts\ThryEditor\Examples\Example2.shader" />
     <None Include="Assets\_PoiyomiShaders\Shaders\Pro\Includes\CGI_PoiTessellation.cginc" />
+    <None Include="Assets\VLights\Shaders\Light\Legacy\VolumeLightPoint.shader" />
     <None Include="Assets\_PoiyomiShaders\Shaders\Pro\Includes\CGI_PoiHelpers.cginc" />
     <None Include="Assets\_PoiyomiShaders\Shaders\Pro\Includes\CGI_PoiEmission.cginc" />
     <None Include="Assets\_PoiyomiShaders\Shaders\Pro\Includes\CGI_PoiDebug.cginc" />
     <None Include="Assets\_PoiyomiShaders\Shaders\Pro\Includes\CGI_PoiPenetration.cginc" />
     <None Include="Assets\_PoiyomiShaders\Shaders\Pro\Includes\CGI_PoiDefines.cginc" />
+    <None Include="Assets\VLights\Shaders\Light\VLightHelperPoint.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets\VLights\Shaders\Common\DownscaleDepth.shader" />
     <None Include="Assets\_PoiyomiShaders\Shaders\Pro\Includes\CGI_PoiOutlineFrag.cginc" />
     <None Include="Assets\_PoiyomiShaders\Shaders\Extras\MasterScanner.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
@@ -247,9 +268,11 @@
     <None Include="Assets\_PoiyomiShaders\Shaders\Pro\Includes\CGI_PoiPassOutline.cginc" />
     <None Include="Assets\Fonts\Orbitron\README.txt" />
     <None Include="Assets\_PoiyomiShaders\Shaders\Pro\Includes\CGI_PoiOutlineVert.cginc" />
+    <None Include="Assets\VLights\Shaders\Common\Camera-DepthNormalTexture.shader" />
     <None Include="Assets\_PoiyomiShaders\Shaders\Pro\Includes\CGI_PoiShadowFrag.cginc" />
     <None Include="Assets\_PoiyomiShaders\Shaders\Pro\Includes\CGI_PoiVertexManipulations.cginc" />
     <None Include="Assets\_PoiyomiShaders\Shaders\Pro\Includes\CGI_PoiBlending.cginc" />
+    <None Include="Assets\VLights\Shaders\Light\VolumeLightDepth.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
     <None Include="Assets\_PoiyomiShaders\Scripts\ThryEditor\Examples\ThryPresetsExample.txt" />
     <None Include="Assets\_PoiyomiShaders\Scripts\ThryEditor\Examples\ThryLabelExample.txt" />
