@@ -1,0 +1,18 @@
+Clock.bpm = 140
+
+//main beat
+kik = Kick()
+kik.trigger.seq( [0,1,0,1,0,1,0,1], 1/4 )
+
+// hat to help subdivisions
+hat = Hat()
+hat.trigger.seq( [1,1,1,1], 1/8)
+
+// synth that uses reverb
+verb = Bus2('spaceverb')
+s.connect(verb, 0.5)
+s = PolySynth({ maxVoices:4 })
+// single note sequence to start with first. Then add hat, then add chords seq
+s.note.seq( notes = [0,2,5,3,3,7,4,0], 1/8)
+
+s.chord.seq( [[0,2,3,4], [3,4,7,-4]], 1/2 )
