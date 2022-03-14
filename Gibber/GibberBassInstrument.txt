@@ -1,3 +1,4 @@
+//https://gibber.cc/docs/index.html
 // ----- INITIALIZE -----
 Clock.bpm = 140
 //Create synths
