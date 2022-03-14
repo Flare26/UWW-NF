@@ -1,0 +1,192 @@
+****************** Improved Partition ******************
+
+Original Array: [-13, -174, 19, 1, 4, 12, 100, 7, 4, 4, 10, 12, 4, 5, 6, 7, 100, 56, 67, 13, 12, 45, 4, 4, 44, 8, 4, -10, 14, 4, -1, 97, -1009, 4210, 4, 4, 1, 9, 17, 45, 4, -99, -845, -90, -9, 13, -13]
+
+pivot = 4
+Lower Partition Index = 12
+Upper Partition Index = 22
+
+After Partitioning: [-13, -174, -13, 1, -10, -9, -90, -845, -1, -1009, -99, 1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 45, 44, 8, 12, 13, 14, 67, 56, 97, 100, 4210, 7, 6, 5, 9, 17, 45, 12, 10, 7, 100, 12, 13, 19]
+
+****************** Randomized Quick-Sort ******************
+
+Original Array: [-13, -174, 19, 1, 4, 12, 100, 7, 4, 4, 10, 12, 4, 5, 6, 7, 100, 56, 67, 13, 12, 45, 4, 4, 44, 8, 4, -10, 14, 4, -1, 97, -1009, 4210, 4, 4, 1, 9, 17, 45, 4, -99, -845, -90, -9, 13, -13]
+After Sorting:  [-1009, -845, -174, -99, -90, -13, -13, -10, -9, -1, 1, 1, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5, 6, 7, 7, 8, 9, 10, 12, 12, 12, 13, 13, 14, 17, 19, 44, 45, 45, 56, 67, 97, 100, 100, 4210]
+
+****************** Randomized Quick-Select ******************
+
+Original Array: [-13, -174, 19, 1, 4, 12, 100, 7, 4, 4, 10, 12, 4, 5, 6, 7, 100, 56, 67, 13, 12, 45, 4, 4, 44, 8, 4, -10, 14, 4, -1, 97, -1009, 4210, 4, 4, 1, 9, 17, 45, 4, -99, -845, -90, -9, 13, -13]
+1th smallest number is -1009
+2th smallest number is -845
+3th smallest number is -174
+4th smallest number is -99
+5th smallest number is -90
+6th smallest number is -13
+7th smallest number is -13
+8th smallest number is -10
+9th smallest number is -9
+10th smallest number is -1
+11th smallest number is 1
+12th smallest number is 1
+13th smallest number is 4
+14th smallest number is 4
+15th smallest number is 4
+16th smallest number is 4
+17th smallest number is 4
+18th smallest number is 4
+19th smallest number is 4
+20th smallest number is 4
+21th smallest number is 4
+22th smallest number is 4
+23th smallest number is 4
+24th smallest number is 5
+25th smallest number is 6
+26th smallest number is 7
+27th smallest number is 7
+28th smallest number is 8
+29th smallest number is 9
+30th smallest number is 10
+31th smallest number is 12
+32th smallest number is 12
+33th smallest number is 12
+34th smallest number is 13
+35th smallest number is 13
+36th smallest number is 14
+37th smallest number is 17
+38th smallest number is 19
+39th smallest number is 44
+40th smallest number is 45
+41th smallest number is 45
+42th smallest number is 56
+43th smallest number is 67
+44th smallest number is 97
+45th smallest number is 100
+46th smallest number is 100
+47th smallest number is 4210
+
+****************** Median of Medians ******************
+
+Original Array: [-13, -174, 19, 1, 4, 12, 100, 7, 4, 4, 10, 12, 4, 5, 6, 7, 100, 56, 67, 13, 12, 45, 4, 4, 44, 8, 4, -10, 14, 4, -1, 97, -1009, 4210, 4, 4, 1, 9, 17, 45, 4, -99, -845, -90, -9, 13, -13]
+1th smallest number is -1009
+2th smallest number is -845
+3th smallest number is -174
+4th smallest number is -99
+5th smallest number is -90
+6th smallest number is -13
+7th smallest number is -13
+8th smallest number is -10
+9th smallest number is -9
+10th smallest number is -1
+11th smallest number is 1
+12th smallest number is 1
+13th smallest number is 4
+14th smallest number is 4
+15th smallest number is 4
+16th smallest number is 4
+17th smallest number is 4
+18th smallest number is 4
+19th smallest number is 4
+20th smallest number is 4
+21th smallest number is 4
+22th smallest number is 4
+23th smallest number is 4
+24th smallest number is 5
+25th smallest number is 6
+26th smallest number is 7
+27th smallest number is 7
+28th smallest number is 8
+29th smallest number is 9
+30th smallest number is 10
+31th smallest number is 12
+32th smallest number is 12
+33th smallest number is 12
+34th smallest number is 13
+35th smallest number is 13
+36th smallest number is 14
+37th smallest number is 17
+38th smallest number is 19
+39th smallest number is 44
+40th smallest number is 45
+41th smallest number is 45
+42th smallest number is 56
+43th smallest number is 67
+44th smallest number is 97
+45th smallest number is 100
+46th smallest number is 100
+47th smallest number is 4210
+
+****************** Sorting Strings ******************
+
+Original order of strings: [abc, xyzw, xyzab, abcdx, wxcdx, abcxy, aac, wxcdx, abcx, abc]
+Radix-sorted order of strings: [aac, abc, abc, abcdx, abcx, abcxy, wxcdx, wxcdx, xyzab, xyzw]
+
+****************** Huffman Encoding ******************
+
+alphabet: [A, B, C, D, E, F, G, H]
+frequencies: [196, 656, 492, 984, 164, 65, 262, 459]
+
+ASCII encoding needs 26224 bits.
+Fixed length encoding needs 9922 bits.
+Huffman encoding needs 8939 bits.
+Huffman Encoding: A(0110); B(00); C(101); D(11); E(01111); F(01110); G(010); H(100)
+
+alphabet: [A, B, C, D, E, F]
+frequencies: [80, 140, 280, 400, 480, 620]
+
+ASCII encoding needs 16000 bits.
+Fixed length encoding needs 6066 bits.
+Huffman encoding needs 4785 bits.
+Huffman Encoding: A(1000); B(1001); C(101); D(00); E(01); F(11)
+
+alphabet: [A, B, C, D, E, F, G, H]
+frequencies: [8000, 14000, 24000, 40000, 36000, 52000, 22000, 4000]
+
+ASCII encoding needs 1600000 bits.
+Fixed length encoding needs 600088 bits.
+Huffman encoding needs 546091 bits.
+Huffman Encoding: A(11001); B(1101); C(011); D(00); E(111); F(10); G(010); H(11000)
+
+alphabet: [A, B, C, D, E, F, G, H]
+frequencies: [25000, 25000, 25000, 25000, 25000, 25000, 25000, 25000]
+
+ASCII encoding needs 1600000 bits.
+Fixed length encoding needs 600088 bits.
+Huffman encoding needs 600088 bits.
+Huffman Encoding: A(000); B(111); C(011); D(101); E(010); F(100); G(110); H(001)
+
+****************** Huffman Decoding ******************
+
+Original Message: BCCABBDDAECCBBAEDDCC
+
+alphabet: [A, B, C, D, E]
+frequencies: [3, 5, 6, 4, 2]
+
+ASCII encoding needs 160 bits.
+Fixed length encoding needs 115 bits.
+Huffman encoding needs 97 bits.
+Huffman Encoding: A(011); B(10); C(11); D(00); E(010)
+
+Encoded Message: 101111011101000000110101111101001101000001111
+Decoded Message: BCCABBDDAECCBBAEDDCC
+
+****************** Interval Scheduling ******************
+
+The intervals are: [(a, 0, 6), (b, 1, 4), (c, 3, 5), (d, 3, 8), (e, 4, 7), (f, 5, 9), (g, 6, 10), (h, 8, 11)]
+Selected intervals are: [(b, 1, 4), (e, 4, 7), (h, 8, 11)]
+
+The intervals are: [(a, 0, 4), (b, 1, 2), (c, 2, 4), (d, 3, 5), (e, 3, 6), (f, 5, 6), (g, 6, 8), (h, 6, 7), (i, 7, 9), (j, 8, 10)]
+Selected intervals are: [(b, 1, 2), (c, 2, 4), (f, 5, 6), (h, 6, 7), (i, 7, 9)]
+
+The intervals are: [(a, 0, 3), (b, 1, 4), (c, 3, 6), (d, 3, 8), (e, 4, 7), (f, 5, 9), (g, 6, 10), (h, 10, 11)]
+Selected intervals are: [(a, 0, 3), (c, 3, 6), (g, 6, 10), (h, 10, 11)]
+
+****************** Interval Coloring ******************
+
+The intervals are: [(a, 0, 6), (h, 8, 11), (d, 3, 8), (e, 4, 7), (f, 5, 9), (c, 3, 5), (g, 6, 10), (b, 1, 4)]
+Number of colors needed to paint the interval with no overlapping colors: 4
+
+The intervals are: [(a, 0, 4), (e, 3, 6), (d, 1, 5), (f, 5, 6), (h, 6, 7), (i, 7, 9), (j, 1, 10), (g, 6, 7), (b, 1, 2), (c, 2, 4)]
+Number of colors needed to paint the interval with no overlapping colors: 5
+
+The intervals are: [(a, 0, 6), (h, 8, 11), (d, 4, 8), (e, 6, 7), (f, 5, 9), (c, 3, 5), (g, 8, 10), (b, 1, 4)]
+Number of colors needed to paint the interval with no overlapping colors: 3

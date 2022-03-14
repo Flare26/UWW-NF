@@ -1,0 +1,1 @@
+Take the files in these folders and copy them to the local eclipse workspace I do not feel like figuring out how to integrate eclipse with this shit its not worth
