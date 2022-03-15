@@ -1,80 +1,83 @@
+                 // THE BASS PLACE
+                 
 //https://gibber.cc/docs/index.html
 // ----- INITIALIZE -----
-Clock.bpm = 140
 //Create synths
-s = Synth('blank', {waveform:'square'})
-x = Synth('blank', {waveform: 'saw'})
+nfs = Synth('blank', {waveform:'square'})
+nfx = Synth('blank', {waveform: 'saw'})
 
-f = Synth();
-f = SoundFont('clarinet');
+nff = Synth();
+nff = SoundFont('clarinet');
 
 // ***** NOTES *****
 // set notes and update for each to play at same time
 // pseudo version of additive synthesis, lol
-notes = [-17, -12, -11, -18, -14, -11,-13]
-notes2 = notes;
+nfnotes = [-17]
+nfnotes2 =nf notes;
 
-s.note(notes2)
+nfs.note(nfnotes2)
 
-x.note(notes)
+nfx.note(nfnotes)
 
-f.note.seq(notes, 1/4)
+nff.note.seq(nfnotes, 1/4)
 
 // amplitudes (default 0.25 - max 1)
-s.amp = 0.25
-x.amp = 1
+nfs.amp = 0.25
+nfx.amp = 1
 
 // ***** FX *****
 // add reverb or no?
-verb = Bus2('spaceverb')
+nfverb = Bus2('spaceverb')
 
-s.connect(verb, 0.5)
+nfs.connect(nfverb, 0.5)
 
-x.connect(verb, 0.5)
+nfx.connect(nfverb, 0.5)
 
 // CHORUS params= rate: 0.01 - 20 | feedback: 0 - 0.99 | (delay) amount: 25-300 [default= ms(1)] 
-c = Chorus({ rate:3, feedback:.7 })
-x.fx.add( c )
+nfc = Chorus({ rate:3, feedback:.7 })
+nfx.fx.add( nfc )
+nfs.fx.add( nfc )
 
 
+// LOW PASS params= cutoff: 0-1 (dont go above 0.75) | resonance: 0 - 5.5  
+nfl = LPF()
 
-// LOW PASS params= cutoff: 0-1 (dont go above 0.75) | resonance: 0 - 5.5 
-l = LPF()
+nfx.fx.add(l)
 
-x.fx.add(l)
-
-s.fx.add(l)
+nfs.fx.add(l)
 
 // ----- RUNTIMES -----//
 
 // RUNTIMES ONLY:  edit waveforms while running
-s.waveform = 'triangle'
-x.waveform = 'square'
+nfs.waveform = 'triangle'
+nfx.waveform = 'square'
 
 // TRANSPOSE
 
-notes.transpose(-7);
-notes.transpose(+7);
+nfnotes.transpose(-7);
+nfnotes.transpose(+7);
 
-notes2.transpose(-7);
-notes2.transpose(+7);
+nfnotes2.transpose(-7);
+nfnotes2.transpose(+7);
 
 // FX
-l.cutoff = 0.05 // can be edited in RUNTIME! 0.05 is pretty cool with X synth
+nfl.cutoff = 0.05 // can be edited in RUNTIME! 0.05 is pretty cool with X synth
 
-c.rate = 3
+nfc.rate = 3
 
-c.feedback = 0.2
+nfc.feedback = 0.2
 
-c.amount = 0.250
+nfc.amount = 0.250
 
 
-x.fx.remove()
-s.fx.remove()
+nfx.fx.remove()
+nfs.fx.remove()
 
 // play stop manipulation
-s.play()
-s.stop()
+nfs.play()
+nfs.stop()
 
-x.play()
-x.stop()
+nfx.play()
+nfx.stop()
+
+// END OF THE BASS PLACE
