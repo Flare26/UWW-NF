@@ -2,7 +2,6 @@
 #define Flasher_h
 #include "Arduino.h"
 #include "Servo.h"
-#include <limits>
 class Flasher {
   public:
 int ledPin;
@@ -58,7 +57,7 @@ void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
   
-  attach(mPin); // servo driver
+
   
   pinMode(greenPin, OUTPUT);
   pinMode(yellowPin, OUTPUT);

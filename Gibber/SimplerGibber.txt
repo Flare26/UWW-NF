@@ -1,17 +1,13 @@
                  
 //https://gibber.cc/docs/index.html
 // ----- INITIALIZE -----
-//Create synths
-nfs = Synth('blank', {waveform:'square'})
-nfx = Synth('blank', {waveform: 'saw'})
-nff = Synth('blank', {waveform: 'saw'})
+nsine = sine( .15, 7 )
+nfs = Synth( 'cry', { gain:.1, octave:1 })
+nfs.note.seq( nsine   , [1/2,1,2] )
+
 // ***** NOTES *****
 // set notes and update for each to play at same time
-nfnotes = [-17]
-nfnotes2 = [-17, 20]
-nfs.note(nfnotes2)
-nfx.note.seq(nfnotes)
-nff.note.seq(nfnotes, 1/4)
+
 
 // ***** FX *****
 // add reverb or no?
@@ -19,28 +15,22 @@ nfverb = Bus2('spaceverb')
 
 nfs.connect(nfverb, 0.5)
 
-nfx.connect(nfverb, 0.5)
-
 // CHORUS params= rate: 0.01 - 20 | feedback: 0 - 0.99 | (delay) amount: 25-300 [default= ms(1)] 
 nfc = Chorus({ rate:3, feedback:.7 })
-nfx.fx.add( nfc )
-nff.fx.add( nfc )
+nfs.fx.add( nfc )
 
 
 // LOW PASS params= cutoff: 0-1 (dont go above 0.75) | resonance: 0 - 5.5  
 nfl = LPF()
-
-nfx.fx.add(nfl)
-
+nflsine = sine ( 0.15 , 1)
 nfs.fx.add(nfl)
 
-nff.fx.add(nfl)
+nfl.cutoff = nflsine
 
 // ----- RUNTIMES -----//
 
 // RUNTIMES ONLY:  edit waveforms while running
 nfs.waveform = 'triangle'
-nfx.waveform = 'square'
 
 // TRANSPOSE
 
@@ -60,7 +50,6 @@ nfc.feedback = 0.2
 nfc.amount = 0.250
 
 
-nfx.fx.remove()
 nfs.fx.remove()
 
 // play stop manipulation
