@@ -1,6 +1,5 @@
 int trigpin = 3;
 int echopin = 5;
-int 
 long duration;
 long distance;
 void setup() {
