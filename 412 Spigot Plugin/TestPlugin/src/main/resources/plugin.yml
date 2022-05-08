@@ -1,0 +1,10 @@
+name: TestPlugin
+version: 0.2
+author: Nateboy
+main: com.nf.testplugin.Main
+description: Test plugin for my CS412 project my first Minecraft mod
+
+commands:
+  hello:
+    aliases: [hi]
+    description: This is the hello command!
