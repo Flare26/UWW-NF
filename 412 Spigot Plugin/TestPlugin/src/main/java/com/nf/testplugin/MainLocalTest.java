@@ -1,7 +1,7 @@
 // MY FIRST MINECRAFT MOD
 //Nathan Frazier
 package com.nf.testplugin;
-import com.nf.testplugin.Main2;
+import com.nf.testplugin.MainLocalTest;
 import java.io.IOException;
 
 // Bukkit & Spigot imports for Minecraft API
@@ -19,7 +19,7 @@ import org.firmata4j.Pin;
 import org.firmata4j.firmata.FirmataDevice;
 import org.firmata4j.I2CDevice;
 
-public final class Main2 extends JavaPlugin implements Listener {
+public final class MainLocalTest extends JavaPlugin implements Listener {
 
 	// This is a function inside of the plugin code but it's put into its own file for testing
 	

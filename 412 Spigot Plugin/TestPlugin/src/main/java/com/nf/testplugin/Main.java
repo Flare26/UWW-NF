@@ -1,26 +1,23 @@
 // MY FIRST MINECRAFT MOD
 //Nathan Frazier
 package com.nf.testplugin;
-import com.nf.testplugin.Main;
+import com.fazecast.jSerialComm.SerialPort;
 import java.io.IOException;
 
+import org.bukkit.plugin.PluginManager;
 // Bukkit & Spigot imports for Minecraft API
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
-import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-
-// Firmata4j for Arduino API
-import org.firmata4j.IODevice;
-import org.firmata4j.Pin;
-import org.firmata4j.firmata.FirmataDevice;
 
 public final class Main extends JavaPlugin implements Listener {
 
-	private IODevice uno;
+	SerialPort sp = SerialPort.getCommPort("COM3");
+	
+	
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String [] args)
 	{
@@ -39,18 +36,6 @@ public final class Main extends JavaPlugin implements Listener {
 		if (p.hasPermission("hello.use"))
 		{
 			p.sendMessage("Hello! This is Nathan from the past!");
-			p.sendMessage("I will now attempt to send power to an arduino pin....");
-			
-			Pin pin = uno.getPin(2);
-			try {
-				pin.setMode(Pin.Mode.OUTPUT);
-				pin.setValue(1);
-				p.sendMessage("Check your Arduino ;)");
-			} catch (IllegalArgumentException | IOException e) {
-				// TODO Auto-generated catch block
-				p.sendMessage("FAILED to setMode or setValue of pin!");
-				e.printStackTrace();
-			}
 			return true;
 		} else
 		{
@@ -61,36 +46,30 @@ public final class Main extends JavaPlugin implements Listener {
 		return false;
 	}
 	
+	
 	@Override
 	public void onEnable()
 	{
 		// onEnable try and begin communications wth the Arduino
-		String portName = "COM3";
 		System.out.println("----- Nate's first Minecraft mod has booted! :D -----");
-		System.out.println("N: Attempting to establish COM link...");
-		try {
-			// Try to establish connection to the arduino via COM port
-			uno = new FirmataDevice(portName);
-			uno.start();
-			uno.ensureInitializationIsDone();
-			System.out.println("N: COM link success!!!!");
-			
-			Pin pin = uno.getPin(2);
-			try {
-				pin.setMode(Pin.Mode.OUTPUT);
-				pin.setValue(1);
-				System.out.println("Check your Arduino ;)");
-			} catch (IllegalArgumentException | IOException e) {
-				// TODO Auto-generated catch block
-				System.out.println("FAILED to setMode or setValue of pin!");
-				e.printStackTrace();
-			}
-			
-		} catch (IOException | InterruptedException e)
-		{
-			e.printStackTrace();
-			System.out.println("N: COM link FAILURE!");
-		}
+		
+		// register listeners because that's a thing you gotta do, Unity engine has me spoiled.
+		
+		PluginManager pm = Bukkit.getServer().getPluginManager();
+		NathansListener listener = new NathansListener(this); // pass in main class so we can still access the stuff from here
+		pm.registerEvents(listener, this);
+		// OK, now the listener class should be registered and it should fire off correctly.
+		
+		sp.setComPortParameters(9600, 8, 1, 0); // default connection settings for Arduino
+		sp.setComPortTimeouts(SerialPort.TIMEOUT_WRITE_BLOCKING, 0, 0);
+	    if (sp.openPort()) {
+	        System.out.println("Nathan: COM Established!!!");
+	      } else {
+	        System.out.println("Nathan: COM link FAILURE");
+	        return;
+	      }	
+	    
+	    
 	}
 	@Override
 	public void onDisable()
