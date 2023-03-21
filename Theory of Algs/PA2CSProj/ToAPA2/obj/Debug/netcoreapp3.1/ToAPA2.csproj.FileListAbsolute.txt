@@ -1,5 +1,0 @@
-C:\Users\natha\Documents\GitHub\UWW-NF\Theory of Algs\PA2CSProj\ToAPA2\obj\Debug\netcoreapp3.1\ToAPA2.csproj.AssemblyReference.cache
-C:\Users\natha\Documents\GitHub\UWW-NF\Theory of Algs\PA2CSProj\ToAPA2\obj\Debug\netcoreapp3.1\ToAPA2.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\natha\Documents\GitHub\UWW-NF\Theory of Algs\PA2CSProj\ToAPA2\obj\Debug\netcoreapp3.1\ToAPA2.AssemblyInfoInputs.cache
-C:\Users\natha\Documents\GitHub\UWW-NF\Theory of Algs\PA2CSProj\ToAPA2\obj\Debug\netcoreapp3.1\ToAPA2.AssemblyInfo.cs
-C:\Users\natha\Documents\GitHub\UWW-NF\Theory of Algs\PA2CSProj\ToAPA2\obj\Debug\netcoreapp3.1\ToAPA2.csproj.CoreCompileInputs.cache

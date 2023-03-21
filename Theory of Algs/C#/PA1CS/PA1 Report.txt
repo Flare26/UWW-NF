@@ -1,0 +1,57 @@
+Nathan Frazier
+
+Part 1 :
+
+1-0:
+Firstly, the points are re-ordered by x to make it easier to find the closes values needed for the first section of the distance equation.
+
+1-1:
+If there's only 3 points or less, then a simple insertion sort by Y followed by the distance formula will order them.
+There is no need to calculate a mid point for this step. This is a condition for the recursion.
+
+1-2:
+Otherwise, find the index of the mid point and store the represented x val into xmid for comparison later.
+
+1-3:
+Recursively sort points on the left side of the mid value, with respect to mid value.
+Then do the same for the right side of mid value.
+
+1-4:
+Find the maximum distances that a given point on the left/right can be away from the mid value.
+Any point on the right or left farther away from the mid than these distances will be ignored.
+Determine whether or not the closest points lie on the left or right of the mid value.
+
+1-5:
+Sorts the points within the strip of valid values.
+
+1-6:
+Trims the extra points outside of the minimum left/right distance from mid.
+
+1-7:
+In the event the algorithm has reached the final two points, break.
+If it finds a distance closer than the previous minimum, it will replace the minimum.
+It will also move the new closest pair to front of the 'closest' array which will be returned for a type B answer.
+
+Part 2:
+
+2-1:
+Radix, Quick Median of 3, Quick Random.
+
+2-2:
+Even though radix and quick random are both linear, radix needs more memory since it's not in-place.
+That required memory usage in radix's case makes quick sort look more attractive in scenarios that you can't afford to wait for radix's worst-case.
+
+2-3:
+I was unable to figure out this part of the code, however I believe that using the brute force method can be as bad as O(n^2).
+Using mergesort, this is optimized by only using a total of 3 checks for inversions. One for left and right sides of pivot,
+then a built-in check during the merge operation. This can cut the time down to O(nlogn).
+
+2-4:
+Divide and conquer maintains O(nlogn).
+Brute force, unlike the d&c method, will test every point, which pushes O(n^2)
+D&c can do better since it doesn't need to calculate distances for the entire set.
+With the one dimensional problem approach, it can quickly determine what points to exclude and which lie in the middle strip.
+Albeit there are more steps, the steps invloved are simple comparisons that don't require cross-referencing, only using simple mins/maxes.
+
+
+
