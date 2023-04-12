@@ -1,0 +1,15 @@
+C:\Users\natha\Documents\GitHub\UWW-NF\Theory of Algs\C#\PA3CS\bin\Debug\net6.0\PA3CS.exe
+C:\Users\natha\Documents\GitHub\UWW-NF\Theory of Algs\C#\PA3CS\bin\Debug\net6.0\PA3CS.deps.json
+C:\Users\natha\Documents\GitHub\UWW-NF\Theory of Algs\C#\PA3CS\bin\Debug\net6.0\PA3CS.runtimeconfig.json
+C:\Users\natha\Documents\GitHub\UWW-NF\Theory of Algs\C#\PA3CS\bin\Debug\net6.0\PA3CS.dll
+C:\Users\natha\Documents\GitHub\UWW-NF\Theory of Algs\C#\PA3CS\bin\Debug\net6.0\PA3CS.pdb
+C:\Users\natha\Documents\GitHub\UWW-NF\Theory of Algs\C#\PA3CS\obj\Debug\net6.0\PA3CS.csproj.AssemblyReference.cache
+C:\Users\natha\Documents\GitHub\UWW-NF\Theory of Algs\C#\PA3CS\obj\Debug\net6.0\PA3CS.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\natha\Documents\GitHub\UWW-NF\Theory of Algs\C#\PA3CS\obj\Debug\net6.0\PA3CS.AssemblyInfoInputs.cache
+C:\Users\natha\Documents\GitHub\UWW-NF\Theory of Algs\C#\PA3CS\obj\Debug\net6.0\PA3CS.AssemblyInfo.cs
+C:\Users\natha\Documents\GitHub\UWW-NF\Theory of Algs\C#\PA3CS\obj\Debug\net6.0\PA3CS.csproj.CoreCompileInputs.cache
+C:\Users\natha\Documents\GitHub\UWW-NF\Theory of Algs\C#\PA3CS\obj\Debug\net6.0\PA3CS.dll
+C:\Users\natha\Documents\GitHub\UWW-NF\Theory of Algs\C#\PA3CS\obj\Debug\net6.0\refint\PA3CS.dll
+C:\Users\natha\Documents\GitHub\UWW-NF\Theory of Algs\C#\PA3CS\obj\Debug\net6.0\PA3CS.pdb
+C:\Users\natha\Documents\GitHub\UWW-NF\Theory of Algs\C#\PA3CS\obj\Debug\net6.0\PA3CS.genruntimeconfig.cache
+C:\Users\natha\Documents\GitHub\UWW-NF\Theory of Algs\C#\PA3CS\obj\Debug\net6.0\ref\PA3CS.dll

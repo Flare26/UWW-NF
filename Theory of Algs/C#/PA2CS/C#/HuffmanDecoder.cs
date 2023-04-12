@@ -13,11 +13,11 @@ namespace _PA2
             for (int i = 0; i < n; i++)
             {
                 encode += encodedMsg[i];
-                if (encodingToCharMapping.ContainsKey(encode.ToArray()))
+                if (encodingToCharMapping.ContainsKey(encode))
                 {
-                    char c = (char)encodingToCharMapping[encode.ToArray()];
+                    char c = (char) encodingToCharMapping[encode];
                     decodedMsg += c;
-                    //encode.Clear();
+                    encode = "";
                 }
             }
 

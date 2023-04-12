@@ -30,11 +30,6 @@ namespace _PA2
                 if (array[k] <= pivot)
                 {
                     ptIdx++;
-                    if (array[k] == pivot)
-                    {
-                        pivIdx = ptIdx; // update pivot index to last occurrence of pivot
-                        pivotCount++;
-                    }
                 }
             }
 
@@ -88,9 +83,9 @@ namespace _PA2
             }
 
             // find lower ptidx
-            for (int s = 0; i < array.Length; i++ )
+            for (int s = left; s <= right; s++)
             {
-                if (array[i] == pivot)
+                if (array[s] == pivot)
                     pivotCount++;
             }
             ptIdxs[0] = ptIdx - pivotCount + 1;

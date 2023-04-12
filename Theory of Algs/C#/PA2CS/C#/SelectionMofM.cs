@@ -19,21 +19,21 @@ namespace _PA2
 
         public static int select(int[] arr, int left, int right, int k)
         { // complete this function
-            int[] pidxs = new int[2]; // pidxs[0] = lower partition index, pidxs[1] = upper partition index
+            int[] ptIdx = new int[2]; // pidxs[0] = lower partition index, pidxs[1] = upper partition index
             if (left == right)
                 return arr[left];
 
             int ptx = left - 1;
             int MoM = GenerateMoMPivot(arr, left, right, k);
-            pidxs = Partition.partition(arr, left, right, MoM);
+            ptIdx = Partition.partition(arr, left, right, MoM);
 
-            if (k >= pidxs[0] - left + 1 && k <= pidxs[1] - left + 1)
+            if (k >= ptIdx[0] - left + 1 && k <= ptIdx[1] - left + 1)
                 return MoM;
 
-            else if (k < pidxs[0] - left + 1)
-                return select(arr, left, pidxs[0], k);
+            else if (k < ptIdx[0] - left + 1)
+                return select(arr, left, ptIdx[0]-1, k);
             else
-                return select(arr, pidxs[1] + 1, right, k - (right - pidxs[1] + 1));
+                return select(arr, ptIdx[1] + 1, right, k - (ptIdx[1] - left + 1));
         }
 
         static int GenerateMoMPivot(int[] arr, int left, int right, int k)
