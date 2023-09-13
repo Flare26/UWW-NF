@@ -9,42 +9,74 @@ namespace _433_PA3
         public static void findBestPath(int[,] board, int numRows, int numCols, int startRow, int startCol)
         {
             // complete this function
-
+            // Initialize values and directions matrices
             int[,] values = new int[numRows, numCols];
             char[,] directions = new char[numRows, numCols];
 
-            // Initialize the starting cell
-            values[startRow, startCol] = board[startRow, startCol];
-            directions[startRow, startCol] = 'S';
-
-            // Base case: Fill the first row and column
-            for (int i = startRow + 1; i < numRows; i++)
+            // Base case 1: Set unreachable cells to Int32.MinValue
+            for (int i = 0; i < startRow; i++)
             {
-                values[i, startCol] = values[i - 1, startCol] + board[i, startCol];
-                directions[i, startCol] = 'U';
+                for (int j = 0; j < numCols; j++)
+                {
+                    values[i, j] = Int32.MinValue;
+                    directions[i, j] = '*';
+                }
             }
-            for (int j = startCol + 1; j < numCols; j++)
+            for (int j = 0; j < startCol; j++)
             {
-                values[startRow, j] = values[startRow, j - 1] + board[startRow, j];
-                directions[startRow, j] = 'L';
+                for (int i = 0; i < numRows; i++)
+                {
+                    values[i, j] = Int32.MinValue;
+                    directions[i, j] = '*';
+                }
             }
 
-            // Iterate through the remaining cells and calculate the maximum gain
+            // Base case 2: Fill the starting row
+            for (int j = startCol; j < numCols; j++)
+            {
+                if (j == startCol)
+                {
+                    values[startRow, j] = board[startRow, j];
+                    directions[startRow, j] = 'S'; // Set starting cell direction to 'S'
+                }
+                else
+                {
+                    values[startRow, j] = values[startRow, j - 1] + board[startRow, j];
+                    directions[startRow, j] = 'L';
+                }
+            }
+
+            // Base case 3: Fill the starting column
+            for (int i = startRow; i < numRows; i++)
+            {
+                if (i == startRow)
+                {
+                    values[i, startCol] = board[i, startCol];
+                    directions[i, startCol] = 'S'; // Set starting cell direction to 'S'
+                }
+                else
+                {
+                    values[i, startCol] = values[i - 1, startCol] + board[i, startCol];
+                    directions[i, startCol] = 'U';
+                }
+            }
+
+            // Fill the remaining cells with the recurrence relation
             for (int i = startRow + 1; i < numRows; i++)
             {
                 for (int j = startCol + 1; j < numCols; j++)
                 {
-                    int upGain = values[i - 1, j] + board[i, j];
-                    int leftGain = values[i, j - 1] + board[i, j];
+                    int upValue = values[i - 1, j];
+                    int leftValue = values[i, j - 1];
 
-                    if (upGain >= leftGain)
+                    if (upValue >= leftValue)
                     {
-                        values[i, j] = upGain;
+                        values[i, j] = upValue + board[i, j];
                         directions[i, j] = 'U';
                     }
                     else
                     {
-                        values[i, j] = leftGain;
+                        values[i, j] = leftValue + board[i, j];
                         directions[i, j] = 'L';
                     }
                 }

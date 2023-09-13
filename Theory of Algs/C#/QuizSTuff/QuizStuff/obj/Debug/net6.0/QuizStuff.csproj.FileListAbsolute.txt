@@ -1,0 +1,15 @@
+C:\Users\natha\Documents\GitHub\UWW-NF\Theory of Algs\C#\QuizSTuff\QuizStuff\obj\Debug\net6.0\QuizStuff.csproj.AssemblyReference.cache
+C:\Users\natha\Documents\GitHub\UWW-NF\Theory of Algs\C#\QuizSTuff\QuizStuff\obj\Debug\net6.0\QuizStuff.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\natha\Documents\GitHub\UWW-NF\Theory of Algs\C#\QuizSTuff\QuizStuff\obj\Debug\net6.0\QuizStuff.AssemblyInfoInputs.cache
+C:\Users\natha\Documents\GitHub\UWW-NF\Theory of Algs\C#\QuizSTuff\QuizStuff\obj\Debug\net6.0\QuizStuff.AssemblyInfo.cs
+C:\Users\natha\Documents\GitHub\UWW-NF\Theory of Algs\C#\QuizSTuff\QuizStuff\obj\Debug\net6.0\QuizStuff.csproj.CoreCompileInputs.cache
+C:\Users\natha\Documents\GitHub\UWW-NF\Theory of Algs\C#\QuizSTuff\QuizStuff\bin\Debug\net6.0\QuizStuff.exe
+C:\Users\natha\Documents\GitHub\UWW-NF\Theory of Algs\C#\QuizSTuff\QuizStuff\bin\Debug\net6.0\QuizStuff.deps.json
+C:\Users\natha\Documents\GitHub\UWW-NF\Theory of Algs\C#\QuizSTuff\QuizStuff\bin\Debug\net6.0\QuizStuff.runtimeconfig.json
+C:\Users\natha\Documents\GitHub\UWW-NF\Theory of Algs\C#\QuizSTuff\QuizStuff\bin\Debug\net6.0\QuizStuff.dll
+C:\Users\natha\Documents\GitHub\UWW-NF\Theory of Algs\C#\QuizSTuff\QuizStuff\bin\Debug\net6.0\QuizStuff.pdb
+C:\Users\natha\Documents\GitHub\UWW-NF\Theory of Algs\C#\QuizSTuff\QuizStuff\obj\Debug\net6.0\QuizStuff.dll
+C:\Users\natha\Documents\GitHub\UWW-NF\Theory of Algs\C#\QuizSTuff\QuizStuff\obj\Debug\net6.0\refint\QuizStuff.dll
+C:\Users\natha\Documents\GitHub\UWW-NF\Theory of Algs\C#\QuizSTuff\QuizStuff\obj\Debug\net6.0\QuizStuff.pdb
+C:\Users\natha\Documents\GitHub\UWW-NF\Theory of Algs\C#\QuizSTuff\QuizStuff\obj\Debug\net6.0\QuizStuff.genruntimeconfig.cache
+C:\Users\natha\Documents\GitHub\UWW-NF\Theory of Algs\C#\QuizSTuff\QuizStuff\obj\Debug\net6.0\ref\QuizStuff.dll
